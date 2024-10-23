@@ -8,9 +8,12 @@ import { styles } from "@/app/styles/styles"
 
 const About = () => {
   return (
-    <section className={`${styles.padding} about-section w-full h-screen mx-auto container`} id="about">
-      <div className="mt-[10%]">
+    <section className={`${styles.padding} about-section w-full mx-auto container bg-gray-700`} id="about">
+      <div className="h-screen">
         About
+      </div>
+      <div className="h-screen bg-gray-900">
+        About 2
       </div>
     </section>
   )

@@ -7,6 +7,7 @@
 import React from 'react';
 import Hero from '@/shared/components/home/hero/Hero';
 import dynamic from 'next/dynamic';
+import About from '@/shared/components/home/about/About';
 
 const RobotScene = dynamic(()=>import('@/shared/components/scene/robotScene/RobotScene'), {ssr:false});
 
@@ -17,11 +18,7 @@ const Home = () => {
       <div className="w-full relative">
         <RobotScene />
         <Hero />
-        <div className={`about-section w-full h-screen mx-auto container`} id="about">
-          <div className="mt-[10%]">
-            About
-          </div>
-        </div>
+        <About />
       </div>
     </div>
   );

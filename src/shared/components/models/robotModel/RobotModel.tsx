@@ -1,10 +1,14 @@
-"use client"; // Ensure client-side rendering
-
+"use client";
+/**
+ * @class RobotModel
+ * @description Purpose of this model is to render and animate robot character
+ * @author Nawod Madhuvantha
+*/
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as THREE from 'three'; // Import THREE constants
+import * as THREE from 'three';
 import { Group } from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,17 +19,16 @@ const RobotModel = () => {
   const group = useRef<Group>(null);
   const { animations, scene } = useGLTF('/models/legendary_robot.glb');
   const { actions } = useAnimations(animations, scene);
-  const scrollTriggerRef = useRef<ScrollTrigger | null>(null); // Store ScrollTrigger instance
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
-    // Ensure that this code only runs on the client
     if (typeof window !== 'undefined' && actions && ScrollTrigger) {
+      // Set Idle Animation by Default
       if (actions["Root|idle"]) {
-        actions["Root|idle"].play(); // Default idle animation
-        console.log("trig idle")
+        actions["Root|idle"].play();
       }
 
-      // Set up ScrollTrigger animations
+      // Set up ScrollTrigger
       scrollTriggerRef.current = ScrollTrigger.create({
         start: 'top top',
         end: 'bottom bottom',
@@ -33,35 +36,61 @@ const RobotModel = () => {
         onUpdate: (self) => {
           const progress = self.progress;
 
-          if (progress > 0.1 && progress < 0.3 && actions["Root|jump_up_root_motion"]) {
-            console.log("trig jump")
-            actions["Root|idle"]?.stop();
-            actions["Root|jump_up_root_motion"]
-              .reset()
-              .setLoop(THREE.LoopOnce, 1)
-              .play();
-          } else if (progress >= 0.3 && progress < 0.7 && actions["Root|jump_mid_air"]) {
-            console.log("trig fall")
+          // Play Idle Animation at the Top
+          if (progress === 0 && actions["Root|idle"]) {
             actions["Root|jump_up_root_motion"]?.stop();
-            actions["Root|jump_mid_air"]
+            actions["Root|idle"]
               .reset()
-              .setLoop(THREE.LoopRepeat, 1)
-              .play();
-          } else if (progress === 1 && actions["Root|jump_landing"]) {
-            console.log("trig land")
-            actions["Root|jump_mid_air"]?.stop();
-            actions["Root|jump_landing"]
-              .reset()
-              .setLoop(THREE.LoopOnce, 1)
               .play();
           }
-        }
+          // Jump Up Animation from 0 to 0.2 scroll progress
+          else if (progress > 0 && progress <= 0.2) {
+            const jumpUpProgress = THREE.MathUtils.mapLinear(progress, 0, 0.2, 0, 1); // Map scroll to 0-0.9s of the jump_up animation
+
+            if (actions["Root|jump_up_root_motion"]) {
+              actions["Root|idle"]?.stop();
+              actions["Root|jump_mid_air"]?.stop();
+              actions["Root|jump_up_root_motion"]
+                .reset()
+                .play()
+                .paused = true;
+              actions["Root|jump_up_root_motion"].timeScale = 0;
+              actions["Root|jump_up_root_motion"].time = jumpUpProgress;
+            }
+          }
+          // Mid-Air Animation between 0.2 and 0.9 scroll progress
+          else if (progress > 0.2 && progress < 0.9) {
+            if (actions["Root|jump_mid_air"] && !actions["Root|jump_mid_air"].isRunning()) {
+              actions["Root|jump_up_root_motion"]?.stop();
+              actions["Root|jump_landing"]?.stop();
+              actions["Root|jump_mid_air"].reset().play()
+            }
+          }
+          // Landing Animation at the end (scroll progress = 1)
+          else if (progress >= 0.9 && progress < 1) {
+            const landProgress = THREE.MathUtils.mapLinear(progress, 0.9, 1, 0.13, 0.8);
+            if (actions["Root|jump_landing"]) {
+              actions["Root|jump_mid_air"]?.stop();
+              actions["Root|idle"]?.stop();
+              actions["Root|jump_landing"]
+                .reset()
+                .play()
+                .paused = true;
+              actions["Root|jump_landing"].timeScale = 0;
+              actions["Root|jump_landing"].time = landProgress;
+            }
+          }
+          // Transition back to Idle after Landing
+          else if (progress === 1 && actions["Root|idle"]) {
+            actions["Root|jump_landing"]?.stop(); // Transition to idle after landing
+            actions["Root|idle"].reset().play();
+          }
+        },
       });
     }
 
-    // Clean up ScrollTrigger on unmount
     return () => {
-      scrollTriggerRef.current?.kill(); // Kill ScrollTrigger instance
+      scrollTriggerRef.current?.kill();
     };
   }, [actions]);
 
