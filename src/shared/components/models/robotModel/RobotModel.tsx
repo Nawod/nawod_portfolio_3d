@@ -57,6 +57,12 @@ const RobotModel = () => {
               actions["Root|jump_up_root_motion"].timeScale = 0;
               actions["Root|jump_up_root_motion"].time = jumpUpProgress;
             }
+            // Change scale during Jump Up
+            if (group.current) {
+              const scale = 0.6 + (0.8 - 0.6) * (progress / 0.2);
+              group.current.scale.set(scale, scale, scale);
+            }
+            
           }
           // Mid-Air Animation between 0.2 and 0.9 scroll progress
           else if (progress > 0.2 && progress < 0.9) {
@@ -79,6 +85,11 @@ const RobotModel = () => {
               actions["Root|jump_landing"].timeScale = 0;
               actions["Root|jump_landing"].time = landProgress;
             }
+            // Reduce scale during landing
+            if (group.current) {
+              const scale = 0.8 - (0.2 * (progress - 0.9) / 0.1);
+              group.current.scale.set(scale, scale, scale);
+            }
           }
           // Transition back to Idle after Landing
           else if (progress === 1 && actions["Root|idle"]) {
@@ -95,8 +106,8 @@ const RobotModel = () => {
   }, [actions]);
 
   return (
-    <group ref={group}>
-      <primitive object={scene} position={[0, -0.7, 0]} scale={0.7} />
+    <group ref={group} scale={[0.6,0.6,0.6]}>
+      <primitive object={scene} position={[0, -1, 0]} />
     </group>
   );
 };
