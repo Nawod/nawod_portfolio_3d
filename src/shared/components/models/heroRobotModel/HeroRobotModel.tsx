@@ -1,7 +1,7 @@
 "use client";
 /**
- * @class RobotModel
- * @description Purpose of this model is to render and animate robot character
+ * @class HeroRobotModel
+ * @description Purpose of this model is to render and animate robot character in hero section
  * @author Nawod Madhuvantha
 */
 import { useGLTF, useAnimations } from '@react-three/drei';
@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 useGLTF.preload('/models/legendary_robot.glb');
 
-const RobotModel = () => {
+const HeroRobotModel = () => {
   const group = useRef<Group>(null);
   const { animations, scene } = useGLTF('/models/legendary_robot.glb');
   const { actions } = useAnimations(animations, scene);
@@ -30,9 +30,11 @@ const RobotModel = () => {
 
       // Set up ScrollTrigger
       scrollTriggerRef.current = ScrollTrigger.create({
+        trigger : ".hero",
         start: 'top top',
         end: 'bottom bottom',
         scrub: true, // Smooth scrubbing based on scroll
+        markers : true,
         onUpdate: (self) => {
           const progress = self.progress;
 
@@ -112,4 +114,4 @@ const RobotModel = () => {
   );
 };
 
-export default RobotModel;
+export default HeroRobotModel;

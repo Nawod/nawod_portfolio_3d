@@ -7,7 +7,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Html, useProgress } from "@react-three/drei";
 import { Suspense } from "react";
-import RobotModel from "../../models/robotModel/RobotModel";
+import RobotModel from "../../models/heroRobotModel/HeroRobotModel";
 
 const Loader = () => {
     const { progress } = useProgress();
