@@ -70,7 +70,7 @@ const NavBar = () => {
             key={nav.id}
             className={`${
                 active === nav.title ? "text-themeLight" : "text-white"
-              } hover:text-theme text-base font-medium cursor-pointer`}
+              } hover:text-theme text-base font-medium cursor-pointer transition-all duration-500`}
               onClick={() => setActive(nav.title)}
             >
                 {nav.title}

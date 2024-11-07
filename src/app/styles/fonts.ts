@@ -29,3 +29,8 @@ export const nabla = localFont({ src: '../fonts/Nabla/Nabla-Regular-VariableFont
     variable: '--font-nabla',
     display : 'swap'
 })
+
+export const iceberge = localFont({ src: '../fonts/Iceberg/Iceberg-Regular.ttf',
+    variable: '--font-iceberge',
+    display : 'swap'
+})

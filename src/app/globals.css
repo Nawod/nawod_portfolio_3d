@@ -47,6 +47,10 @@ body {
   font-family: var(--font-nabla);
 }
 
+.iceberge{
+  font-family: var(--font-iceberge);
+}
+
 /* effects */
 .glow-effect {
   text-shadow: 0 0 10px var(--mainLight), 0 0 20px var(--mainLight), 0 0 30px var(--mainDark);
@@ -62,14 +66,44 @@ body {
   }
 }
 
-.neon-hover{
-  &:hover{
-    color: white;
-    background: var(--themeMain);
-    transition-delay: 1s;
-    box-shadow: 0 0 10px var(--themeMain), 0 0 40px var(--themeMain), 0 0 80px var(--mainLight)
-  }
+.neon-hover:hover{
+  color: white;
+  background: var(--themeMain);
+  transition-delay: 1s;
+  box-shadow: 0 0 10px var(--themeMain), 0 0 40px var(--themeMain), 0 0 80px var(--mainLight)
 }
+
+.section-title {
+  --title-text: "Your Title Text Here";
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-family: var(--font-iceberge);
+  font-weight: bold;
+  color: transparent;
+  background: radial-gradient(circle, var(--mainLight), var(--themeMain), var(--mainDark)); 
+  background-clip: text; 
+  -webkit-background-clip: text;
+  display: inline-block;
+  position: relative; 
+  text-align: center;
+  width: 100%;
+}
+
+.section-title::before {
+  content: var(--title-text); /* Necessary for the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  
+  text-shadow: 
+    2px 2px 0 var(--secondDark),   /* Shadow to the right and down */
+    4px 4px 0 var(--themeSecond),   /* Shadow for more depth */
+    6px 6px 0 var(--secondLight);   /* Additional layer for deeper 3D look */ 
+}
+
 
 
 @layer components {
@@ -87,5 +121,12 @@ body {
 @media screen and (min-width: 1024px) {
   body{
       font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .section-title{
+      font-size: 6rem;
+      text-align: left;
   }
 }

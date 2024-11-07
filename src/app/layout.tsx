@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/shared/components/navBar/NavBar";
 import dynamic from "next/dynamic";
-import { anton, iceland, nabla, oswald, roboto, rubik } from "./styles/fonts";
+import { anton, iceberge, iceland, nabla, oswald, roboto, rubik } from "./styles/fonts";
 
 const ViewCanvas = dynamic(()=> import('@/shared/components/canvas/ViewCanvas'),{ssr:false})
 
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} ${anton.variable} ${oswald.variable} ${rubik.variable} ${iceland.variable} ${nabla.variable} antialiased`}
+        className={`${roboto.variable} ${anton.variable} ${oswald.variable} ${rubik.variable} ${iceland.variable} ${nabla.variable} ${iceberge.variable} antialiased`}
       >
         <NavBar />
         {children}
