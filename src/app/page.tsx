@@ -5,7 +5,7 @@
 */
 
 import React from 'react';
-import HeroSection from '@/shared/components/home/heroSection/HeroSection';
+import HeroSection from '@/shared/components/home/heroSection';
 
 
 const Home = () => {

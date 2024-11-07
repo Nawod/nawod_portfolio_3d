@@ -12,6 +12,7 @@ import { Navigation } from "@/shared/constants/navigation";
 import { useEffect, useState } from "react";
 import { TiThMenu } from "react-icons/ti";
 import { IoIosClose } from "react-icons/io";
+import Image from "next/image";
 
 const NavBar = () => {
 
@@ -44,7 +45,7 @@ const NavBar = () => {
     >
       <div className='w-full flex justify-between items-center container mx-auto'>
         <Link
-            to='/'
+            to='home'
             spy={true}
             smooth={true}
             duration={500}
@@ -52,10 +53,9 @@ const NavBar = () => {
           className='flex items-center gap-2'
           onClick={() =>setActive("")}
         >
-          {/* <img src={logo} alt='logo' className='w-9 h-9 object-contain' /> */}
-          <p className='text-white text-base font-bold cursor-pointer flex '>
-            Nawod
-          </p>
+          <div className="relative w-9 h-9 cursor-pointer">
+            <Image src='/logo.png' alt='logo' fill className='object-contain' />
+          </div>
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
@@ -69,8 +69,8 @@ const NavBar = () => {
             delay={500}
             key={nav.id}
             className={`${
-                active === nav.title ? "text-white" : "text-green-400"
-              } hover:text-white text-base font-medium cursor-pointer`}
+                active === nav.title ? "text-themeLight" : "text-white"
+              } hover:text-theme text-base font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
                 {nav.title}

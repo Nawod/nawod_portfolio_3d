@@ -12,6 +12,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        theme: "var(--themeMain)",
+        themeLight: "var(--mainLight)",
+        themeDark: "var(--mainDark)",
+        secondary: "var(--themeSecond)",
+        secondaryLight: "var(--secondLight)",
+        secondaryDark: "var(--secondDark)",
       },
     },
   },

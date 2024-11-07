@@ -27,14 +27,12 @@ const HeroRobotModel = () => {
       if (actions["Root|idle"]) {
         actions["Root|idle"].play();
       }
-
       // Set up ScrollTrigger
       scrollTriggerRef.current = ScrollTrigger.create({
         trigger : ".hero",
         start: 'top top',
         end: 'bottom bottom',
         scrub: true, // Smooth scrubbing based on scroll
-        markers : true,
         onUpdate: (self) => {
           const progress = self.progress;
 

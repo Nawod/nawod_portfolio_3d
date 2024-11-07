@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #171717;
+  --background: #000000;
   --foreground: #ffffff;
   --themeMain: #5bac3e;
   --mainLight: #85dd52;
@@ -16,10 +16,16 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-oswald);
+  font-family: var(--font-iceland);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
+*{
+  font-size: 14px;
+}
+
+/* fonts */
 .oswald{
   font-family: var(--font-oswald);
 }
@@ -44,6 +50,31 @@ body {
   font-family: var(--font-nabla);
 }
 
+/* effects */
+.glow-effect {
+  text-shadow: 0 0 10px var(--mainLight), 0 0 20px var(--mainLight), 0 0 30px var(--mainDark);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px var(--mainLight), 0 0 20px var(--mainLight), 0 0 30px var(--mainDark);
+  }
+  100% {
+    text-shadow: 0 0 25px var(--mainLight), 0 0 35px var(--themeMain), 0 0 45px var(--mainDark);
+  }
+}
+
+.neon-hover{
+  &:hover{
+    color: white;
+    background: var(--themeMain);
+    transition-delay: 1s;
+    box-shadow: 0 0 10px var(--themeMain), 0 0 40px var(--themeMain), 0 0 80px var(--mainLight)
+  }
+}
+
+
 @layer components {
   .container {
     @apply max-w-screen-2xl m-auto;
@@ -53,5 +84,11 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  *{
+      font-size: 16px;
   }
 }
