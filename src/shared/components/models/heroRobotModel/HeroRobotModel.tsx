@@ -64,6 +64,11 @@ const HeroRobotModel = () => {
             if (group.current) {
               const scale = defaultScale + ((defaultScale + 0.2) - defaultScale) * (progress / 0.2);
               group.current.scale.set(scale, scale, scale);
+
+              if(!isDesktop){
+                const position = 0.25 * (progress / 0.2);
+                group.current.position.set(position,0,0);
+              }
             }
             
           }
@@ -73,6 +78,11 @@ const HeroRobotModel = () => {
               actions["Root|jump_up_root_motion"]?.stop();
               actions["Root|jump_landing"]?.stop();
               actions["Root|jump_mid_air"].reset().play()
+            }
+            if(group.current && !isDesktop){
+              const scale = defaultScale + 0.2;
+              group.current.scale.set(scale, scale, scale);
+              group.current.position.set(0.25,0,0);
             }
           }
           // Landing Animation at the end (scroll progress = 1)
@@ -92,6 +102,10 @@ const HeroRobotModel = () => {
             if (group.current) {
               const scale = (defaultScale + 0.2) - (0.2 * (progress - 0.9) / 0.1);
               group.current.scale.set(scale, scale, scale);
+              if(!isDesktop){
+                const position = 0.25 - (0.25 * (progress - 0.9) / 0.1);
+                group.current.position.set(position,0,0);
+              }
             }
           }
           // Transition back to Idle after Landing

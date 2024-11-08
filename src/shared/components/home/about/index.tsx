@@ -93,14 +93,14 @@ const About = () => {
   });
 
   return (
-    <section className={`${styles.padding} about-section w-full mx-auto container md:z-10 z-40 relative`} id="about">
+    <section className={`${styles.padding} about-section w-full mx-auto container relative`} id="about">
       <div className="h-[20vh]"></div>
       <div className="about-title z-10 relative">
           <div className="section-title" style={{ '--title-text': '"About me"' }as React.CSSProperties}>
               About me
         </div>
       </div>
-      <div className="mt-12 profile-section z-10 relative">
+      <div className="mt-12 profile-section md:z-10 z-40 relative">
         <div className="relative profile-block max-w-[600px] max-h-[200px]">
           <AboutBlockSVG />
         </div>
@@ -139,7 +139,7 @@ const About = () => {
       <div className="h-screen">
         About 2
       </div>
-      <div className="about-bg hidden z-0 sm:block h-screen w-screen absolute top-[10vh] left-0 opacity-0">
+      <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
         <Image src="/aboutBg.jpg" alt="about background" fill className="object-cover" />
       </div>
     </section>
