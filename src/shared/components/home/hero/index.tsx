@@ -13,7 +13,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextSplitter } from "@/shared/models/TextSplitter";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP,ScrollTrigger);
 
 const Hero = () => {
 
@@ -22,7 +22,7 @@ const Hero = () => {
     const introTl = gsap.timeline(); 
 
     introTl
-      .set(".hero-section", {opacity : 1})
+      .set(".hero-section", {duration:1,opacity : 1})
       .from(".hero-title .split-char", {
         opacity: 0,
         stagger: 0.1,
@@ -34,12 +34,44 @@ const Hero = () => {
         opacity: 0,
         duration: 1,
         ease: "power4.in",
-      }, "+=.5")
+      }, "+=.3")
       .from(".hero-btn",{
         opacity: 0,
         y: 60,
         duration: 1,
       })
+  
+    
+    const outroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 80%", // Adjusts when animation starts
+        end: "top 40%",
+        scrub: 1,
+        // markers: true, 
+      },
+    });
+
+    outroTl
+    .to(".hero-title", {
+      opacity: 0.8,
+      y: -40,
+      ease: "back.out(3)",
+    })
+    .to(".hero-subtitle", {
+      opacity: 0.4,
+      y: -40,
+      ease: "back.out(3)",
+    },"<")
+    .to(".hero-btn",{
+      opacity: 0.2,
+      y: -40,
+    },"<")
+    .to(".hero-bg",{
+      opacity: 0,
+      y: 200,
+    },"<")
+  
 
   });
 
@@ -65,7 +97,7 @@ const Hero = () => {
           smooth={true}
           duration={500}
           delay={500}
-          className="her-btn"
+          className="hero-btn"
         >
           <NeonButton title="Get in touch" />
         </Link>

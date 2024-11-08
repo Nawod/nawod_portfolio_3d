@@ -6,8 +6,8 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
       fill="#fff"
       stroke="#000"
       strokeWidth={0}
-      className="iceland"
-      fontSize={28}
+      className="iceland text-4xl"
+      fontSize={'2.3rem'}
     >
       <text
         xmlSpace="preserve"
@@ -15,7 +15,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={60.204}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {'"I\u2019m a software engineer creating interactive, high-quality'}
+        {'"I\u2019m a software engineer creating interactive,'}
       </text>
       <text
         xmlSpace="preserve"
@@ -23,7 +23,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={310.019}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {'to every project."'}
+        {'technical expertise to every project."'}
       </text>
       <text
         xmlSpace="preserve"
@@ -31,7 +31,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={90.09}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {"web applications with Next, React, Angular, and TypeScript."}
+        {" high-quality web applications with Next, React,"}
       </text>
       <text
         xmlSpace="preserve"
@@ -39,7 +39,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={120.019}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {"Skilled in animations, 3D, parallax effects and design-focused "}
+        {"Angular, and TypeScript. Skilled in animations,"}
       </text>
       <text
         xmlSpace="preserve"
@@ -47,7 +47,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={150.019}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {"effects, I specialize in building modern, responsive websites"}
+        {"3D, parallax effects and design-focused effects,"}
       </text>
       <text
         xmlSpace="preserve"
@@ -55,7 +55,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={180.019}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {"for clients worldwide."}
+        {"I specialize in building modern, responsive"}
       </text>
       <text
         xmlSpace="preserve"
@@ -63,7 +63,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={210.019}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {""}
+        {"websites for clients worldwide."}
       </text>
       <text
         xmlSpace="preserve"
@@ -71,7 +71,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={250.478}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {"Based in Sri Lanka and available for remote work,"}
+        {"Based in Sri Lanka and available for remote"}
       </text>
       <text
         xmlSpace="preserve"
@@ -79,7 +79,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
         y={280.019}
         transform="matrix(.60605 0 0 .62737 69.197 34.635)"
       >
-        {"I bring a unique blend of creativity and technical expertise"}
+        {"work, I bring a unique blend of creativity and"}
       </text>
     </g>
     <g stroke="#85dd52" strokeWidth={2}>
