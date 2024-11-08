@@ -10,6 +10,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as THREE from 'three';
 import { Group } from 'three';
+import { useMediaQuery } from '@/shared/hooks/useMediaQuery';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,9 +21,11 @@ const HeroRobotModel = () => {
   const { animations, scene } = useGLTF('/models/legendary_robot.glb');
   const { actions } = useAnimations(animations, scene);
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  const isDesktop = useMediaQuery("(min-width: 640px)", true);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && actions && ScrollTrigger) {
+      const defaultScale = isDesktop ? 0.6 : 0.37;
       // Set Idle Animation by Default
       if (actions["Root|idle"]) {
         actions["Root|idle"].play();
@@ -59,7 +62,7 @@ const HeroRobotModel = () => {
             }
             // Change scale during Jump Up
             if (group.current) {
-              const scale = 0.6 + (0.8 - 0.6) * (progress / 0.2);
+              const scale = defaultScale + ((defaultScale + 0.2) - defaultScale) * (progress / 0.2);
               group.current.scale.set(scale, scale, scale);
             }
             
@@ -87,7 +90,7 @@ const HeroRobotModel = () => {
             }
             // Reduce scale during landing
             if (group.current) {
-              const scale = 0.8 - (0.2 * (progress - 0.9) / 0.1);
+              const scale = (defaultScale + 0.2) - (0.2 * (progress - 0.9) / 0.1);
               group.current.scale.set(scale, scale, scale);
             }
           }
@@ -103,11 +106,11 @@ const HeroRobotModel = () => {
     return () => {
       scrollTriggerRef.current?.kill();
     };
-  }, [actions]);
+  }, [actions,isDesktop]);
 
   return (
-    <group ref={group} scale={[0.6,0.6,0.6]}>
-      <primitive object={scene} position={[0, -1, 0]} />
+    <group ref={group} scale={isDesktop ? [0.6,0.6,0.6] : [0.37,0.37,0.37]}>
+      <primitive object={scene} position={isDesktop ? [0, -1, 0] : [0, -0.5, 0]} />
     </group>
   );
 };
