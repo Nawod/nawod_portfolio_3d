@@ -35,7 +35,7 @@ const Hero = () => {
         duration: 1,
         ease: "power4.in",
       }, "+=.5")
-      .from(".her-btn",{
+      .from(".hero-btn",{
         opacity: 0,
         y: 60,
         duration: 1,
@@ -51,7 +51,7 @@ const Hero = () => {
             text={'Hi,'}
           />
         </h1>
-        <h1 className="hero-title flex gap-4 text-7xl rubik lg:text-9xl sm:text-8xl glow-effect">
+        <h1 className="hero-title flex gap-4 text-7xl rubik lg:text-9xl sm:text-8xl glow-effect flex-wrap">
           <TextSplitter
             text={`I'm Nawod`}
           />

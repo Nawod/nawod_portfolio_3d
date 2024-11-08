@@ -67,6 +67,7 @@ body {
 }
 
 .neon-hover:hover{
+  border-color: transparent;
   color: white;
   background: var(--themeMain);
   transition-delay: 1s;
