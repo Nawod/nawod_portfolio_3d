@@ -19,9 +19,10 @@ const Hero = () => {
 
   useGSAP(() => {
 
-    const introTl = gsap.timeline(); 
-
-    introTl
+    gsap.set(".hero-section", {duration:1,opacity : 1})
+    if (window.scrollY < 20) {
+      const introTl = gsap.timeline(); 
+      introTl
       .set(".hero-section", {duration:1,opacity : 1})
       .from(".hero-title .split-char", {
         opacity: 0,
@@ -33,19 +34,19 @@ const Hero = () => {
       .from(".hero-subtitle", {
         opacity: 0,
         duration: 1,
-        ease: "power4.in",
-      }, "+=.3")
+      })
       .from(".hero-btn",{
         opacity: 0,
         y: 60,
         duration: 1,
-      })
+      },"<")
+    }
   
     
     const outroTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".about-section",
-        start: "top 80%", // Adjusts when animation starts
+        start: "top 70%", // Adjusts when animation starts
         end: "top 40%",
         scrub: 1,
         // markers: true, 

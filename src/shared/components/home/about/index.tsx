@@ -13,6 +13,7 @@ import NeonButton from "../../buttons/NeonButton"
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image"
 
 gsap.registerPlugin(useGSAP,ScrollTrigger);
 
@@ -22,46 +23,94 @@ const About = () => {
 
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 20%", // Adjusts when animation starts
-        end: "bottom bottom",
+        trigger: ".profile-section",
+        start: "top 85%", // Adjusts when animation starts
+        end: "bottom 80%",
         scrub: 1,
-        markers: true, 
+        // markers: true, 
       },
     });
 
-    timeline.fromTo(
+    timeline
+    .from(
       ".about-title",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0,  ease: "power2.out" }
+      { opacity: 0, y:50, ease: "back.out(1.4)", }
     )
-    .fromTo(
+    .from(
       ".profile-block",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0,  ease: "power2.out" }
+      { opacity: 0, y: 50,  ease: "power2.out" }
     )
+    .from(
+      ".self-block",
+      { opacity: 0, y: 50,  ease: "power2.out" }
+    )
+    .from(
+      ".service-title",
+      { opacity: 0, y: 50,  ease: "power2.out" }
+    )
+    .from(
+      ".service-block",
+      { opacity: 0, y: 50,  ease: "power2.out" }
+    )
+    .from(
+      ".hire-btn",
+      { opacity: 0, x: -50, ease: "back.out(1.4)", }
+    )
+    .from(
+      ".cv-btn",
+      { opacity: 0, x: 50,  ease: "back.out(1.4)", },"<"
+    )
+
+    const bgTl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".profile-section",
+        start: "top 100%", 
+        end: "top 30%",
+        scrub: 1,
+        // markers: true, 
+      },
+    });
+
+    bgTl1
+    .fromTo(
+      ".about-bg",
+      {opacity : 0, y : 300},
+      { opacity: 0.2, y: 0, ease: "back.out(1.4)", }
+    )
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".about-bg",
+        endTrigger : ".profile-section",
+        start: "top top", 
+        end: "bottom 80%",
+        pin : ".about-bg",
+        pinSpacing: false,
+        // markers: true, 
+      },
+    });
 
   });
 
   return (
     <section className={`${styles.padding} about-section w-full mx-auto container md:z-10 z-40 relative`} id="about">
       <div className="h-[20vh]"></div>
-      <div className="about-title">
+      <div className="about-title z-10 relative">
           <div className="section-title" style={{ '--title-text': '"About me"' }as React.CSSProperties}>
               About me
         </div>
       </div>
-      <div className="mt-12">
+      <div className="mt-12 profile-section z-10 relative">
         <div className="relative profile-block max-w-[600px] max-h-[200px]">
           <AboutBlockSVG />
         </div>
-        <div className="relative max-w-[600px] max-h-[300px]">
+        <div className="relative self-block max-w-[600px] max-h-[300px]">
           <AboutSelfSVG />
         </div>
-        <div className="iceland pl-8 sm:pl-12 text-theme sm:text-lg">
+        <div className="iceland pl-8 service-title sm:pl-12 text-theme sm:text-lg">
           Services I Offer :
         </div>
-        <div className="relative flex max-w-[600px] max-h-[200px]">
+        <div className="relative flex service-block max-w-[600px] max-h-[200px]">
           <AboutWebSVG />
         </div>
         <div className="flex gap-4 mt-12 flex-wrap pl-0 justify-center sm:pl-12 sm:justify-start">
@@ -89,6 +138,9 @@ const About = () => {
       </div>
       <div className="h-screen">
         About 2
+      </div>
+      <div className="about-bg hidden z-0 sm:block h-screen w-screen absolute top-[10vh] left-0 opacity-0">
+        <Image src="/aboutBg.jpg" alt="about background" fill className="object-cover" />
       </div>
     </section>
   )

@@ -70,7 +70,7 @@ body {
   border-color: transparent;
   color: white;
   background: var(--themeMain);
-  transition-delay: 1s;
+  transition-delay: 0.6s;
   box-shadow: 0 0 10px var(--themeMain), 0 0 40px var(--themeMain), 0 0 80px var(--mainLight)
 }
 
