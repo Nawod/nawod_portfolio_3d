@@ -31,7 +31,7 @@ const ExperienceTimeLine = () => {
             el as HTMLElement,
           {
             opacity: 0,
-            x: xPosition, // Slide from left for even elements, right for odd elements
+            x: xPosition, 
           },
           {
             opacity: 1,
@@ -51,7 +51,7 @@ const ExperienceTimeLine = () => {
   return (
     <div className='relative z-40 overflow-x-hidden'>
       <VerticalTimeline animate={false}>
-        { ExperienceList.list.map((item) =>
+        { ExperienceList.list.slice().reverse().map((item) =>
             <VerticalTimelineElement
             key={item.id}
             className="vertical-timeline-element--work exp-timeline"
@@ -60,7 +60,7 @@ const ExperienceTimeLine = () => {
                 background: 'linear-gradient(135deg, rgba(91, 172, 62, 0.2), rgba(133, 221, 82, 0.2), rgba(36, 109, 27, 0.2))',
                 backdropFilter: 'blur(10px)', 
                 WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid #aa701',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
                 borderRadius: '0.5rem',
                 padding: '1rem',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 

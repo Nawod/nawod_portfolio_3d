@@ -73,7 +73,7 @@ const Hero = () => {
       y: 200,
     },"<")
   
-
+    ScrollTrigger.refresh();
   });
 
   return (

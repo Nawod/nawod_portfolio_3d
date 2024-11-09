@@ -35,7 +35,8 @@ const HeroRobotModel = () => {
         trigger : ".hero",
         start: 'top top',
         end: 'bottom bottom',
-        scrub: true, // Smooth scrubbing based on scroll
+        scrub: true, 
+        // markers : true,
         onUpdate: (self) => {
           const progress = self.progress;
 
@@ -72,8 +73,8 @@ const HeroRobotModel = () => {
             }
             
           }
-          // Mid-Air Animation between 0.2 and 0.9 scroll progress
-          else if (progress > 0.2 && progress < 0.9) {
+          // Mid-Air Animation between 0.2 and 0.91 scroll progress
+          else if (progress > 0.2 && progress < 0.91) {
             if (actions["Root|jump_mid_air"] && !actions["Root|jump_mid_air"].isRunning()) {
               actions["Root|jump_up_root_motion"]?.stop();
               actions["Root|jump_landing"]?.stop();
@@ -86,8 +87,8 @@ const HeroRobotModel = () => {
             }
           }
           // Landing Animation at the end (scroll progress = 1)
-          else if (progress >= 0.9 && progress < 1) {
-            const landProgress = THREE.MathUtils.mapLinear(progress, 0.9, 1, 0.13, 0.8);
+          else if (progress >= 0.91 && progress < 1) {
+            const landProgress = THREE.MathUtils.mapLinear(progress, 0.91, 1, 0.13, 0.8);
             if (actions["Root|jump_landing"]) {
               actions["Root|jump_mid_air"]?.stop();
               actions["Root|idle"]?.stop();
@@ -100,10 +101,10 @@ const HeroRobotModel = () => {
             }
             // Reduce scale during landing
             if (group.current) {
-              const scale = (defaultScale + 0.2) - (0.2 * (progress - 0.9) / 0.1);
+              const scale = (defaultScale + 0.2) - (0.2 * (progress - 0.91) / 0.1);
               group.current.scale.set(scale, scale, scale);
               if(!isDesktop){
-                const position = 0.25 - (0.25 * (progress - 0.9) / 0.1);
+                const position = 0.25 - (0.25 * (progress - 0.91) / 0.1);
                 group.current.position.set(position,0,0);
               }
             }

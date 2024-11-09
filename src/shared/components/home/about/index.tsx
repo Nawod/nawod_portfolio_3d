@@ -15,6 +15,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image"
 import ExperienceTimeLine from "./ExperienceTimeLine";
+import Skills from "./Skills"
 
 gsap.registerPlugin(useGSAP,ScrollTrigger);
 
@@ -94,7 +95,7 @@ const About = () => {
   });
 
   return (
-    <section className={`${styles.padding} about-section w-full mx-auto container relative`} id="about">
+    <section className={`${styles.padding} pb-40 about-section w-full mx-auto container relative`} id="about">
       <div className="h-[20vh]"></div>
       <div className="about-title z-10 relative">
           <div className="section-title" style={{ '--title-text': '"About me"' }as React.CSSProperties}>
@@ -138,7 +139,7 @@ const About = () => {
       </div>
       </div>
       <div className="mt-20">
-        <div className="iceberge text-5xl font-bold mb-2 text-center"
+        <div className="iceberge text-4xl sm:text-5xl font-bold mb-2 text-center"
         style={{
           background: 'radial-gradient(circle, #85dd52, #5bac3e, #246d1b )',
           WebkitBackgroundClip: 'text',
@@ -148,6 +149,18 @@ const About = () => {
           My Work Experience
         </div>
         <ExperienceTimeLine />
+      </div>
+      <div className="relative mt-20" >
+        <div className="skill-title iceberge text-4xl sm:text-5xl font-bold mb-12 text-center"
+          style={{
+            background: 'radial-gradient(circle, #85dd52, #5bac3e, #246d1b )',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}>
+            My Technical Skills
+          </div>
+          <Skills />
       </div>
       <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
         <Image src="/aboutBg.jpg" alt="about background" fill className="object-cover" />

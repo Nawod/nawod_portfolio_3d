@@ -1,4 +1,5 @@
 import { ExperienceItem } from "../models/about";
+import { IconList } from "../models/common";
 
 export class ExperienceList {
     public static readonly list : ExperienceItem[] = [
@@ -148,6 +149,91 @@ export class ExperienceList {
                     value : "Achieved development milestones and scheduled targets"
                 },
             ]
+        },
+    ]
+}
+
+export class TechList {
+    public static readonly list : IconList[] = [
+        {
+            id : '01',
+            value : 'Next',
+            icon : '/tech/next.png'
+        },
+        {
+            id : '02',
+            value : 'React',
+            icon : '/tech/reactjs.png'
+        },
+        {
+            id : '03',
+            value : 'Angular',
+            icon : '/tech/angular.png'
+        },
+        {
+            id : '04',
+            value : 'ThreeJs',
+            icon : '/tech/threejs.svg'
+        },
+        {
+            id : '05',
+            value : 'Tailwind',
+            icon : '/tech/tailwind.png'
+        },
+        {
+            id : '06',
+            value : 'Typescript',
+            icon : '/tech/typescript.png'
+        },
+        {
+            id : '07',
+            value : 'Javascript',
+            icon : '/tech/javascript.png'
+        },
+        {
+            id : '08',
+            value : 'SCSS',
+            icon : '/tech/scss.png'
+        },
+        {
+            id : '09',
+            value : 'Redux',
+            icon : '/tech/redux.png'
+        },
+        {
+            id : '10',
+            value : 'GSAP',
+            icon : '/tech/gsap.png'
+        },
+        {
+            id : '11',
+            value : 'Prisma',
+            icon : '/tech/prisma.png'
+        },
+        {
+            id : '12',
+            value : 'MongoDB',
+            icon : '/tech/mongodb.png'
+        },
+        {
+            id : '13',
+            value : 'NodeJS',
+            icon : '/tech/nodejs.png'
+        },
+        {
+            id : '14',
+            value : 'GIT',
+            icon : '/tech/git.png'
+        },
+        {
+            id : '15',
+            value : 'Adobe XD',
+            icon : '/tech/xd.png'
+        },
+        {
+            id : '16',
+            value : 'Figma',
+            icon : '/tech/figma.png'
         },
     ]
 }

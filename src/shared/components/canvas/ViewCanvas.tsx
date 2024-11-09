@@ -8,7 +8,8 @@ import { Canvas } from "@react-three/fiber";
 // import { Html, useProgress } from "@react-three/drei";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import { View } from "@react-three/drei";
+import { Preload, View } from "@react-three/drei";
+import InstantCanvasLoader from "../loaders/InstantCanvasLoader";
 
 // const Loader = () => {
 //     const { progress } = useProgress();
@@ -21,7 +22,6 @@ const Loader = dynamic(
 
 const ViewCanvas = () => {
     return (
-        <>
             <Canvas
                 style={{
                 position: "fixed",
@@ -39,12 +39,12 @@ const ViewCanvas = () => {
                 gl={{ antialias: true }}
                 camera={{ position: [0, 0, 5], fov: 25 }}
             >
-                <Suspense fallback={null}>
+                <Suspense fallback={<InstantCanvasLoader />}>
                     <View.Port />
                 </Suspense>
+                <Preload all />
+                <Loader />
             </Canvas>
-            <Loader />
-        </>
     );
 };
 
