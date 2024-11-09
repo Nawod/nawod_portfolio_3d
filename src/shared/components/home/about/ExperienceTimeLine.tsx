@@ -4,23 +4,57 @@
  * @description purpose of this component is to render experience as a time line
  * @author Nawod Madhuvantha
 */
-
-
 import React from 'react';
 import 'react-vertical-timeline-component/style.min.css';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import Image from 'next/image';
 import { ExperienceList } from '@/shared/constants/about';
 import Link from 'next/link';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP,ScrollTrigger);
 
 const ExperienceTimeLine = () => {
+
+    useGSAP(() => {
+      const elements = gsap.utils.toArray(".vertical-timeline-element--work");
+
+      if(!elements) {
+        return;
+      }
+
+      elements.forEach((el, index) => {
+        const xPosition = index % 2 === 1 ? 100 : -100;
+        gsap.fromTo(
+            el as HTMLElement,
+          {
+            opacity: 0,
+            x: xPosition, // Slide from left for even elements, right for odd elements
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el as HTMLElement,
+              start: "top 80%", 
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+
   return (
-    <div className='relative z-10'>
+    <div className='relative z-40 overflow-x-hidden'>
       <VerticalTimeline animate={false}>
         { ExperienceList.list.map((item) =>
             <VerticalTimelineElement
             key={item.id}
-            className="vertical-timeline-element--work"
+            className="vertical-timeline-element--work exp-timeline"
             contentStyle={{
                 color: '#fff',
                 background: 'linear-gradient(135deg, rgba(91, 172, 62, 0.2), rgba(133, 221, 82, 0.2), rgba(36, 109, 27, 0.2))',
