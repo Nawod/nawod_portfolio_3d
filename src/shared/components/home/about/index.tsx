@@ -14,6 +14,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image"
+import ExperienceTimeLine from "./ExperienceTimeLine";
 
 gsap.registerPlugin(useGSAP,ScrollTrigger);
 
@@ -74,8 +75,8 @@ const About = () => {
     bgTl1
     .fromTo(
       ".about-bg",
-      {opacity : 0, y : 300},
-      { opacity: 0.2, y: 0, ease: "back.out(1.4)", }
+      {opacity : 0},
+      { opacity: 0.2, ease: "back.out(1.4)", }
     )
 
     gsap.timeline({
@@ -136,8 +137,17 @@ const About = () => {
         </Link>
       </div>
       </div>
-      <div className="h-screen">
-        About 2
+      <div className="mt-20">
+        <div className="iceberge text-5xl font-bold mb-2 text-center"
+        style={{
+          background: 'radial-gradient(circle, #85dd52, #5bac3e, #246d1b )',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          color: 'transparent',
+        }}>
+          My Work Experience
+        </div>
+        <ExperienceTimeLine />
       </div>
       <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
         <Image src="/aboutBg.jpg" alt="about background" fill className="object-cover" />
