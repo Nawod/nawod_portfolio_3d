@@ -44,7 +44,7 @@ const HeroRobotModel = () => {
           const landingStart = 0.83;
           const landingEnd = 0.93;
 
-          console.log("progress ", progress);
+          // console.log("progress ", progress);
           // Play Idle Animation at the Top
           if (progress === 0 && actions["Root|idle"]) {
             actions["Root|jump_up_root_motion"]?.stop();
@@ -125,7 +125,7 @@ const HeroRobotModel = () => {
             }
           }
           // Transition back to Idle after Landing
-          else if (progress === 1 && actions["Root|idle"]) {
+          else if (progress >= landingEnd && actions["Root|idle"]) {
             actions["Root|jump_landing"]?.stop(); // Transition to idle after landing
             actions["Root|idle"].reset().play();
           }

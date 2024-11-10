@@ -10,6 +10,7 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProjectSlider from "./ProjectSlider";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -24,11 +25,9 @@ const Projects = () => {
         // markers: true,
       },
     });
-
     entryTl.to(".project-section", {
       marginTop: "-100vh",
     });
-
     gsap.timeline({
       scrollTrigger: {
         trigger: ".skill-wrapper",
@@ -43,7 +42,7 @@ const Projects = () => {
 
   return (
     <section
-      className={`${styles.padding} pb-40 project-section w-full mx-auto container relative h-screen bg-background z-50`}
+      className={`${styles.padding} pt-8 pb-40 project-section w-full mx-auto container h-screen relative bg-red-900 z-50`}
       id="projects"
     >
       <div className="projects-title z-10 relative">
@@ -57,6 +56,9 @@ const Projects = () => {
       <p className="about-subtitle pl-2 lg:mb-8 mb-24 lg:text-3xl text-xl md:w-[50%] w-70%">
         Some of my recent works
       </p>
+      <div>
+        <ProjectSlider />
+      </div>
     </section>
   );
 };

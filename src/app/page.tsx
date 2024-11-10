@@ -13,7 +13,12 @@ const Home = () => {
     <div className="w-screen relative">
       <HeroSection />
       <Projects />
-      <div className="h-screen bg-blue-950">contact</div>
+      <section
+        className="h-screen bg-blue-950"
+        id="contact"
+      >
+        contact
+      </section>
     </div>
   );
 };

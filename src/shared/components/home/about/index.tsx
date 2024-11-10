@@ -8,7 +8,6 @@ import { styles } from "@/app/styles/styles";
 import AboutBlockSVG from "@/shared/svg/AboutProfile";
 import AboutSelfSVG from "@/shared/svg/AboutSelf";
 import AboutWebSVG from "@/shared/svg/AboutWeb";
-import { Link } from "react-scroll";
 import NeonButton from "../../buttons/NeonButton";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -16,6 +15,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import ExperienceTimeLine from "./ExperienceTimeLine";
 import Skills from "./Skills";
+import { scrollToSection } from "@/shared/models/ScrollToView";
+import Link from "next/link";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -97,25 +98,16 @@ const About = () => {
           <AboutWebSVG />
         </div>
         <div className="flex gap-4 mt-12 flex-wrap pl-0 justify-center sm:pl-12 sm:justify-start">
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            duration={500}
-            delay={500}
-            className="hire-btn"
-          >
+          <div className="hire-btn">
             <NeonButton
               title="Let's work"
               border
+              onClickAction={() => scrollToSection("contact")}
             />
-          </Link>
+          </div>
           <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            duration={500}
-            delay={500}
+            href={""}
+            target="_blank"
             className="cv-btn"
           >
             <NeonButton
