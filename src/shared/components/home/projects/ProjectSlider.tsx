@@ -1,5 +1,7 @@
 "use client";
+import { ProjectList } from "@/shared/constants/projects";
 import Image from "next/image";
+import Link from "next/link";
 /**
  * @class ProjectSlider
  * @description purpose of this component is to render the slider of projects
@@ -10,57 +12,73 @@ import React from "react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProjectSlider = () => {
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full pb-40 -mt-24 -sm:mt-32">
       <Swiper
-        effect={"coverflow"}
         grabCursor={true}
-        centeredSlides={true}
-        coverflowEffect={{
-          rotate: 15,
-          stretch: 0,
-          depth: 300,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[EffectCoverflow, Pagination]}
-        loop={true}
-        className="project-swiper h-full"
+        navigation
+        spaceBetween={30}
+        slidesPerView={1}
         breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 3 },
+          580: { slidesPerView: 2 },
+          1200: { slidesPerView: 3 },
         }}
+        loop={true}
+        className="project-swiper h-full max-w-full pt-32"
+        modules={[Navigation]}
+        style={{ paddingTop: "8rem" }}
       >
-        {/* {ProductList.list.map((item) => ( */}
-        <SwiperSlide
-          // key={item.slug}
-          className="project-item relative w-[400px] h-[600px]"
-          style={{ width: "400px", height: "600px" }}
-        >
-          <div className="relative">
-            <div className="relative">
-              <Image
-                src="/aboutBg.jpg"
-                alt=""
-                fill
-              />
-            </div>
-            <div>Project Name</div>
-            <div className="flex flex-wrap gap-2">
-              <div>React</div>
-            </div>
-            <div>project short description</div>
-            <div>Preview</div>
-          </div>
-        </SwiperSlide>
-        {/* ))} */}
+        {ProjectList.list
+          .slice()
+          .reverse()
+          .map((item) => (
+            <SwiperSlide
+              key={item.id}
+              className="project-item relative"
+            >
+              <div className="relative card-wrapper box-border py-6 px-4 rounded-3xl bg-secondary-metallic shadow-3d">
+                <div className="relative w-full h-40 rounded-lg metallic-overlay">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} image`}
+                    fill
+                    className="rounded-lg object-cover"
+                  />
+                </div>
+                <div className="text-xl anton mt-4 text-center metallic-text">
+                  {item.title}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {item.technologies.map((tech) => (
+                    <div
+                      className="text-sm pt-[2px] pb-[4px] px-[16px] rounded-2xl roboto bg-pin-metallic"
+                      key={tech.id}
+                    >
+                      {tech.value}
+                    </div>
+                  ))}
+                </div>
+                <div className="mb-4 mt-4 leading-4 text-lg">
+                  {item.description}
+                </div>
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  className="block w-full cursor-pointer roboto text-center font-semibold p-2 rounded-lg uppercase bg-theme-metallic text-shine"
+                >
+                  Preview
+                </Link>
+                <span className="nail top-2 left-2"></span>
+                <span className="nail top-2 right-2"></span>
+                <span className="nail bottom-2 left-2"></span>
+                <span className="nail bottom-2 right-2"></span>
+              </div>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

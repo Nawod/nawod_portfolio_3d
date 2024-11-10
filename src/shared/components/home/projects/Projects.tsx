@@ -42,7 +42,7 @@ const Projects = () => {
 
   return (
     <section
-      className={`${styles.padding} pt-8 pb-40 project-section w-full mx-auto container h-screen relative bg-red-900 z-50`}
+      className={`${styles.padding} pt-8 pb-40 project-section w-full mx-auto container relative bg-background z-50`}
       id="projects"
     >
       <div className="projects-title z-10 relative">
@@ -53,7 +53,7 @@ const Projects = () => {
           Projects
         </div>
       </div>
-      <p className="about-subtitle pl-2 lg:mb-8 mb-24 lg:text-3xl text-xl md:w-[50%] w-70%">
+      <p className="about-subtitle pl-2 lg:mb-8 mb-24 lg:text-3xl text-xl md:w-[50%] w-70% text-center sm:text-left">
         Some of my recent works
       </p>
       <div>

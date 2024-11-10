@@ -105,13 +105,144 @@ body {
     6px 6px 0 var(--secondLight);   /* Additional layer for deeper 3D look */ 
 }
 
-/* 3d block */
+/*3d block */
 .block-3d {
   background: linear-gradient(135deg, rgba(91, 172, 62, 0.2), rgba(133, 221, 82, 0.2), rgba(36, 109, 27, 0.2));
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* metallic card */
+.bg-secondary-metallic {
+  background: linear-gradient(135deg, var(--secondDark), var(--secondLight));
+  box-shadow: inset 2px 2px 8px var(--secondDark), inset -2px -2px 8px var(--secondLight), 3px 3px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--secondLight);
+}
+
+/* Shine Effect */
+.metallic-overlay {
+  position: relative;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.3) 60%);
+  box-shadow: inset 0px 0px 12px rgba(255, 255, 255, 0.2);
+}
+
+.shadow-3d {
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4), -4px -4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Metallic Text */
+.metallic-text {
+  color: white;
+  text-shadow: 1px 1px 2px var(--secondDark);
+}
+
+/* Metallic Button */
+.bg-theme-metallic {
+  background: linear-gradient(135deg, var(--mainDark), var(--mainLight));
+  box-shadow: 1px 1px 5px var(--mainDark), -1px -1px 5px var(--mainLight), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.bg-theme-metallic:hover {
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.bg-pin-metallic {
+  background: linear-gradient(135deg, var(--secondDark), var(--secondLight));
+  box-shadow: 1px 1px 5px var(--secondDark), -1px -1px 5px var(--secondLight), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Shining Text */
+.text-shine {
+  color: var(--mainLight);
+  text-shadow: 1px 1px 2px var(--mainDark);
+}
+
+/* Metallic Nail Positioning */
+.nail {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, var(--secondLight) 20%, var(--secondDark) 80%);
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* swiper styles */
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(135deg, var(--mainDark), var(--mainLight));
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  z-index: 10;
+  right: 60px;
+  left: auto;
+  top: 0;
+  transform: translateY(50%);
+  color: var(--foreground);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Tail */
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 15px;
+  background: var(--foreground);
+}
+
+/* Arrowhead */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Left Arrow */
+.swiper-button-prev::before {
+  left: 17px;
+}
+
+.swiper-button-prev::after {
+  left: 11px;
+  border-width: 6px 8px 6px 0;
+  border-color: transparent var(--foreground) transparent transparent;
+}
+
+/* Right Arrow */
+.swiper-button-next::before {
+  right: 17px;
+}
+
+.swiper-button-next::after {
+  right: 11px;
+  border-width: 6px 0 6px 8px;
+  border-color: transparent transparent transparent var(--foreground);
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: linear-gradient(135deg, var(--themeMain), var(--mainLight));
 }
 
 @layer components {
