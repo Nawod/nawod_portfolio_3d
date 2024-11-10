@@ -57,6 +57,32 @@ body {
   animation: glow 1.5s infinite alternate;
 }
 
+.about-section::before {
+  content: "";
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(91, 172, 62, 0.3), rgba(36, 109, 27, 0));
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-section::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(91, 172, 62, 0.3), rgba(36, 109, 27, 0));
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+}
+
 @keyframes glow {
   0% {
     text-shadow: 0 0 10px var(--mainLight), 0 0 20px var(--mainLight), 0 0 30px var(--mainDark);

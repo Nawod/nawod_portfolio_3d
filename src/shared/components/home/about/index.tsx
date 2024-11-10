@@ -72,7 +72,7 @@ const About = () => {
 
   return (
     <section
-      className={`${styles.padding} about-section w-full mx-auto container relative`}
+      className={`${styles.padding} about-section w-full mx-auto container relative overflow-x-hidden`}
       id="about"
     >
       <div className="h-[20vh]"></div>

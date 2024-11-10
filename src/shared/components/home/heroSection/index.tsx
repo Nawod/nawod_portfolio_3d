@@ -6,12 +6,16 @@
  */
 
 import { View } from "@react-three/drei";
-import React from "react";
+import React, { useEffect } from "react";
 import HeroRobotModel from "../../models/heroRobotModel/HeroRobotModel";
 import Hero from "../hero";
 import About from "../about";
 
 const HeroSection = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative hero-wrapper">
       <View className="hero-scene pointer-events-none sticky top-0 z-20 -mt-[100vh] -mr-[100vw] h-screen w-screen block left-[25%]">
