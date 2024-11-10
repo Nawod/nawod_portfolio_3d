@@ -21,7 +21,7 @@ const Projects = () => {
         start: "top bottom",
         end: "bottom bottom",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -36,7 +36,7 @@ const Projects = () => {
         start: "top 25%",
         end: "bottom bottom",
         pin: ".skill-wrapper",
-        markers: true,
+        // markers: true,
       },
     });
   });
