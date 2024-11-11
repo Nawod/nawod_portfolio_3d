@@ -140,6 +140,15 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
+/** glass block */
+.glass-block{
+  background: linear-gradient(196deg, #246d1b45, #85dd524d);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 /* metallic card */
 .bg-secondary-metallic {
   background: linear-gradient(135deg, var(--secondDark), var(--secondLight));
@@ -183,7 +192,7 @@ body {
 
 /* Shining Text */
 .text-shine {
-  color: var(--mainLight);
+  color: var(--foreground);
   text-shadow: 1px 1px 2px var(--mainDark);
 }
 
@@ -271,9 +280,26 @@ body {
   background: linear-gradient(135deg, var(--themeMain), var(--mainLight));
 }
 
+/* particle bg */
+
+.particle-wrapper{
+  height: 100%;
+    top: 0;
+    position: absolute !important;
+    width: 100%;
+    left: 0;
+    z-index: 0;
+}
+
 @layer components {
   .container {
     @apply max-w-screen-2xl m-auto;
+  }
+  .input-box{
+    @apply w-full py-4 px-8 rounded-lg mb-4 outline-theme roboto text-lg placeholder:text-white
+  }
+  .textarea{
+    @apply w-full py-4 px-8 rounded-lg outline-theme roboto text-lg placeholder:text-white min-h-56
   }
 }
 

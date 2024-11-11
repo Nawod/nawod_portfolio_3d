@@ -1,0 +1,128 @@
+"use client";
+
+/**
+ * @class Contact
+ * @description purpose of this component is to render the contact page
+ * @author Nawod Madhuvantha
+ */
+
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import emailjs from "@emailjs/browser";
+import { NotifyType } from "@/shared/constants/common";
+import { ContactFormData } from "@/shared/models/contact";
+
+const ContactForm = () => {
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm<ContactFormData>();
+    const [isLoading, setIsLoading] = useState(false);
+
+    /**
+     * display a notification
+     * @param type
+     * @param msg
+     */
+    const notify = (type: number, msg: string) => {
+        if (type === NotifyType.ERROR) {
+            toast.error(msg);
+        } else {
+            toast.success(msg);
+        }
+    };
+
+    /**
+     * sent an email
+     */
+    const sentEmail = (data: ContactFormData) => {
+        setIsLoading(true);
+
+        const templateParams = {
+            from_name: data.name,
+            message: data.message,
+            reply_to: data.email,
+        };
+
+        emailjs
+            .send(
+                "service_g0f2tyy",
+                "template_mm4kwko",
+                templateParams,
+                "Wr-90JbNGu12tKvmX"
+            )
+            .then(() => {
+                setIsLoading(false);
+                notify(NotifyType.SUCCESS, "Your message successfully sent!");
+                reset();
+            })
+            .catch(() => {
+                setIsLoading(false);
+                notify(NotifyType.ERROR, "Sorry! Your message didn't sent");
+            });
+    };
+
+    /**
+     * handle form submit
+     * @param data
+     */
+    const onSubmit = (data: ContactFormData) => {
+        console.log("data", data);
+        // sentEmail(data);
+    };
+
+    return (
+        <div className="w-full">
+            <form
+                className=""
+                id="my-form"
+                onSubmit={handleSubmit(onSubmit)}
+            >
+                <input
+                    type="text"
+                    placeholder="YOUR NAME"
+                    {...register("name", { required: true })}
+                    className={`input-box glass-block ${
+                        errors.name && "outline-red-600 border-red-600"
+                    }`}
+                />
+                <input
+                    type="email"
+                    {...register("email", { required: true })}
+                    className={`input-box glass-block ${
+                        errors.email && "outline-red-600 border-red-600"
+                    }`}
+                    placeholder="YOUR E-MAIL"
+                />
+                <textarea
+                    {...register("message", { required: true })}
+                    className={`textarea glass-block ${
+                        errors.message && "outline-red-600 border-red-600"
+                    }`}
+                    placeholder="YOUR MESSAGE"
+                />
+            </form>
+            <div className="flex justify-between items-center mt-4">
+                <div>social icons</div>
+                <button
+                    form="my-form"
+                    className="bg-theme-metallic px-8 roboto text-lg uppercase text-shine"
+                    disabled={isLoading}
+                    type="submit"
+                >
+                    Send
+                </button>
+            </div>
+            <ToastContainer
+                theme="dark"
+                closeOnClick={false}
+                pauseOnFocusLoss={false}
+            />
+        </div>
+    );
+};
+
+export default ContactForm;

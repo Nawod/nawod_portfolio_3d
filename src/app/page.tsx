@@ -6,21 +6,17 @@
 
 import React from "react";
 import HeroSection from "@/shared/components/home/heroSection";
-import Projects from "@/shared/components/home/projects/Projects";
+import Projects from "@/shared/components/home/projects";
+import Contact from "@/shared/components/home/contact";
 
 const Home = () => {
-  return (
-    <div className="w-screen relative">
-      <HeroSection />
-      <Projects />
-      <section
-        className="h-screen bg-blue-950"
-        id="contact"
-      >
-        contact
-      </section>
-    </div>
-  );
+    return (
+        <div className="w-screen relative">
+            <HeroSection />
+            <Projects />
+            <Contact />
+        </div>
+    );
 };
 
 export default Home;
