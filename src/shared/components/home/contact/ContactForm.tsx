@@ -122,7 +122,7 @@ const ContactForm = () => {
                 </div>
                 <button
                     form="my-form"
-                    className="bg-theme-metallic px-8 py-2 roboto uppercase text-shine rounded-md disabled:opacity-70"
+                    className="send-btn bg-theme-metallic px-8 py-2 roboto uppercase text-shine rounded-md disabled:opacity-70"
                     disabled={isLoading}
                     type="submit"
                 >

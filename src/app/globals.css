@@ -108,8 +108,8 @@ body {
   font-weight: bold;
   color: transparent;
   background: radial-gradient(circle, var(--mainLight), var(--themeMain), var(--mainDark)); 
-  background-clip: text; 
   -webkit-background-clip: text;
+  background-clip: text;
   display: inline-block;
   position: relative; 
   text-align: center;
