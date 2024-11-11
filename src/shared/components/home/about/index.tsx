@@ -21,140 +21,145 @@ import Link from "next/link";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const About = () => {
-  useGSAP(() => {
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".profile-section",
-        start: "top 85%", // Adjusts when animation starts
-        end: "bottom 80%",
-        scrub: 1,
-        // markers: true,
-      },
+    useGSAP(() => {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".profile-section",
+                start: "top 85%", // Adjusts when animation starts
+                end: "bottom 80%",
+                scrub: 1,
+                // markers: true,
+            },
+        });
+
+        timeline
+            .from(".about-title", { opacity: 0, y: 50, ease: "back.out(1.4)" })
+            .from(".profile-block", { opacity: 0, y: 50, ease: "power2.out" })
+            .from(".self-block", { opacity: 0, y: 50, ease: "power2.out" })
+            .from(".service-title", { opacity: 0, y: 50, ease: "power2.out" })
+            .from(".service-block", { opacity: 0, y: 50, ease: "power2.out" })
+            .from(".hire-btn", { opacity: 0, x: -50, ease: "back.out(1.4)" })
+            .from(".cv-btn", { opacity: 0, x: 50, ease: "back.out(1.4)" }, "<");
+
+        const bgTl1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".profile-section",
+                start: "top 100%",
+                end: "top 30%",
+                scrub: 1,
+                // markers: true,
+            },
+        });
+
+        bgTl1.fromTo(
+            ".about-bg",
+            { opacity: 0 },
+            { opacity: 0.2, ease: "back.out(1.4)" }
+        );
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".about-bg",
+                endTrigger: ".profile-section",
+                start: "top top",
+                end: "bottom 80%",
+                pin: ".about-bg",
+                pinSpacing: false,
+                // markers: true,
+            },
+        });
     });
 
-    timeline
-      .from(".about-title", { opacity: 0, y: 50, ease: "back.out(1.4)" })
-      .from(".profile-block", { opacity: 0, y: 50, ease: "power2.out" })
-      .from(".self-block", { opacity: 0, y: 50, ease: "power2.out" })
-      .from(".service-title", { opacity: 0, y: 50, ease: "power2.out" })
-      .from(".service-block", { opacity: 0, y: 50, ease: "power2.out" })
-      .from(".hire-btn", { opacity: 0, x: -50, ease: "back.out(1.4)" })
-      .from(".cv-btn", { opacity: 0, x: 50, ease: "back.out(1.4)" }, "<");
-
-    const bgTl1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".profile-section",
-        start: "top 100%",
-        end: "top 30%",
-        scrub: 1,
-        // markers: true,
-      },
-    });
-
-    bgTl1.fromTo(
-      ".about-bg",
-      { opacity: 0 },
-      { opacity: 0.2, ease: "back.out(1.4)" }
+    return (
+        <section
+            className={`${styles.padding} about-section w-full mx-auto container relative overflow-x-hidden`}
+            id="about"
+        >
+            <div className="h-[20vh]"></div>
+            <div className="about-title z-10 relative">
+                <div
+                    className="section-title"
+                    style={
+                        { "--title-text": '"About me"' } as React.CSSProperties
+                    }
+                >
+                    About me
+                </div>
+            </div>
+            <div className="mt-12 profile-section md:z-10 z-40 relative">
+                <div className="relative profile-block max-w-[600px] max-h-[200px]">
+                    <AboutBlockSVG />
+                </div>
+                <div className="relative self-block max-w-[600px] max-h-[300px]">
+                    <AboutSelfSVG />
+                </div>
+                <div className="iceland pl-8 service-title sm:pl-12 text-theme sm:text-lg">
+                    Services I Offer :
+                </div>
+                <div className="relative flex service-block max-w-[600px] max-h-[200px]">
+                    <AboutWebSVG />
+                </div>
+                <div className="flex gap-4 mt-12 flex-wrap pl-0 justify-center sm:pl-12 sm:justify-start">
+                    <div className="hire-btn">
+                        <NeonButton
+                            title="Let's work"
+                            border
+                            onClickAction={() => scrollToSection("contact")}
+                        />
+                    </div>
+                    <Link
+                        href={""}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="cv-btn"
+                    >
+                        <NeonButton
+                            title="Download CV"
+                            border
+                        />
+                    </Link>
+                </div>
+            </div>
+            <div className="mt-20">
+                <div
+                    className="iceberge text-4xl sm:text-5xl font-bold mb-2 text-center"
+                    style={{
+                        background:
+                            "radial-gradient(circle, #85dd52, #5bac3e, #246d1b )",
+                        WebkitBackgroundClip: "text",
+                        backgroundClip: "text",
+                        color: "transparent",
+                    }}
+                >
+                    My Work Experience
+                </div>
+                <ExperienceTimeLine />
+            </div>
+            <div className="relative mt-20 skill-wrapper z-40">
+                <div
+                    className="skill-title iceberge text-4xl sm:text-5xl font-bold mb-12 text-center"
+                    style={{
+                        background:
+                            "radial-gradient(circle, #85dd52, #5bac3e, #246d1b )",
+                        WebkitBackgroundClip: "text",
+                        backgroundClip: "text",
+                        color: "transparent",
+                    }}
+                >
+                    My Technical Skills
+                </div>
+                <Skills />
+            </div>
+            <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
+                <Image
+                    src="/aboutBg.jpg"
+                    alt="about background"
+                    fill
+                    className="object-cover"
+                />
+            </div>
+        </section>
     );
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about-bg",
-        endTrigger: ".profile-section",
-        start: "top top",
-        end: "bottom 80%",
-        pin: ".about-bg",
-        pinSpacing: false,
-        // markers: true,
-      },
-    });
-  });
-
-  return (
-    <section
-      className={`${styles.padding} about-section w-full mx-auto container relative overflow-x-hidden`}
-      id="about"
-    >
-      <div className="h-[20vh]"></div>
-      <div className="about-title z-10 relative">
-        <div
-          className="section-title"
-          style={{ "--title-text": '"About me"' } as React.CSSProperties}
-        >
-          About me
-        </div>
-      </div>
-      <div className="mt-12 profile-section md:z-10 z-40 relative">
-        <div className="relative profile-block max-w-[600px] max-h-[200px]">
-          <AboutBlockSVG />
-        </div>
-        <div className="relative self-block max-w-[600px] max-h-[300px]">
-          <AboutSelfSVG />
-        </div>
-        <div className="iceland pl-8 service-title sm:pl-12 text-theme sm:text-lg">
-          Services I Offer :
-        </div>
-        <div className="relative flex service-block max-w-[600px] max-h-[200px]">
-          <AboutWebSVG />
-        </div>
-        <div className="flex gap-4 mt-12 flex-wrap pl-0 justify-center sm:pl-12 sm:justify-start">
-          <div className="hire-btn">
-            <NeonButton
-              title="Let's work"
-              border
-              onClickAction={() => scrollToSection("contact")}
-            />
-          </div>
-          <Link
-            href={""}
-            target="_blank"
-            className="cv-btn"
-          >
-            <NeonButton
-              title="Download CV"
-              border
-            />
-          </Link>
-        </div>
-      </div>
-      <div className="mt-20">
-        <div
-          className="iceberge text-4xl sm:text-5xl font-bold mb-2 text-center"
-          style={{
-            background: "radial-gradient(circle, #85dd52, #5bac3e, #246d1b )",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          My Work Experience
-        </div>
-        <ExperienceTimeLine />
-      </div>
-      <div className="relative mt-20 skill-wrapper z-40">
-        <div
-          className="skill-title iceberge text-4xl sm:text-5xl font-bold mb-12 text-center"
-          style={{
-            background: "radial-gradient(circle, #85dd52, #5bac3e, #246d1b )",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          My Technical Skills
-        </div>
-        <Skills />
-      </div>
-      <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
-        <Image
-          src="/aboutBg.jpg"
-          alt="about background"
-          fill
-          className="object-cover"
-        />
-      </div>
-    </section>
-  );
 };
 
 export default About;

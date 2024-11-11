@@ -15,6 +15,11 @@ const Home = () => {
             <HeroSection />
             <Projects />
             <Contact />
+            <div className="w-full flex flex-wrap py-4 gap-2 justify-center">
+                <div className="text-center">©️ Nawod Madhuvantha</div>
+                <div className="text-center"> - dev.nawod@gmail.com</div>
+                <div className="text-center"> - +94 076 399 1948</div>
+            </div>
         </div>
     );
 };

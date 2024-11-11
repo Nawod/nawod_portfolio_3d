@@ -38,7 +38,6 @@ const Contact = () => {
                     </div>
                     <div className="flex-1">image</div>
                 </div>
-                <div className="w-full text-center">Nawod Madhuvantha</div>
             </section>
 
             <ParticleBg id="particle" />

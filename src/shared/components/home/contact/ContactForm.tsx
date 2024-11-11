@@ -10,8 +10,10 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import emailjs from "@emailjs/browser";
-import { NotifyType } from "@/shared/constants/common";
 import { ContactFormData } from "@/shared/models/contact";
+import { NotifyType, SocialLinks } from "@/shared/constants/common";
+import Link from "next/link";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
     const {
@@ -70,8 +72,7 @@ const ContactForm = () => {
      * @param data
      */
     const onSubmit = (data: ContactFormData) => {
-        console.log("data", data);
-        // sentEmail(data);
+        sentEmail(data);
     };
 
     return (
@@ -105,11 +106,23 @@ const ContactForm = () => {
                     placeholder="YOUR MESSAGE"
                 />
             </form>
-            <div className="flex justify-between items-center mt-4">
-                <div>social icons</div>
+            <div className="flex justify-between mt-4 items-center">
+                <div className="flex items-center gap-2">
+                    {SocialLinks.list.map((item) => (
+                        <Link
+                            href={item.value}
+                            key={item.id}
+                            target="_blank"
+                            rel="noreferrer"
+                            title={item.id}
+                        >
+                            <item.icon className="text-2xl hover:text-themeLight cursor-pointer transition-all duration-500" />
+                        </Link>
+                    ))}
+                </div>
                 <button
                     form="my-form"
-                    className="bg-theme-metallic px-8 roboto text-lg uppercase text-shine"
+                    className="bg-theme-metallic px-8 py-2 roboto uppercase text-shine rounded-md disabled:opacity-70"
                     disabled={isLoading}
                     type="submit"
                 >
@@ -120,6 +133,7 @@ const ContactForm = () => {
                 theme="dark"
                 closeOnClick={false}
                 pauseOnFocusLoss={false}
+                position="bottom-right"
             />
         </div>
     );
