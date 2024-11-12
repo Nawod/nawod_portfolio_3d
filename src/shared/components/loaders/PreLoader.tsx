@@ -5,7 +5,7 @@
  * @author Nawod Madhuvantha
  */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { gsap, CSSPlugin, Expo } from "gsap";
 import { useProgress } from "@react-three/drei";
 import { useDispatch } from "react-redux";
@@ -19,12 +19,14 @@ const PreLoader = () => {
     const [overallProgress, setOverallProgress] = useState<number>(0);
     const dispatch = useDispatch();
 
+    useLayoutEffect(() => {
+        // Scroll to the top immediately
+        window.scrollTo(0, 0);
+        document.body.classList.add("no-scroll");
+    }, []);
+
     // Track imported font loading
     useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
         document.fonts.ready.then(() => setFontLoaded(true));
     }, []);
 
@@ -81,7 +83,7 @@ const PreLoader = () => {
             ></div>
             <div
                 id="count"
-                className="hide absolute text-[8rem] text-white font-medium"
+                className="hide absolute glow-effect text-[8rem] text-white font-medium"
             >
                 {Math.floor(overallProgress)}%
             </div>
