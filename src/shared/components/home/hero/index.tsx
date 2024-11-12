@@ -25,30 +25,34 @@ const Hero = () => {
                 return;
             }
 
-            const introTl = gsap.timeline({
-                onComplete: () => {
-                    document.body.classList.remove("no-scroll");
-                },
-            });
-            introTl
-                .to(".hero-title .split-char", {
-                    opacity: 1,
-                    stagger: 0.1,
-                    ease: "back.out(3)",
-                    duration: 0.1,
-                })
-                .to(".hero-subtitle", {
-                    opacity: 1,
-                    duration: 1,
-                })
-                .to(
-                    ".hero-btn",
-                    {
+            if (window.scrollY < 20) {
+                const introTl = gsap.timeline({
+                    onComplete: () => {
+                        document.body.classList.remove("no-scroll");
+                    },
+                });
+                introTl
+                    .to(".hero-title .split-char", {
+                        opacity: 1,
+                        stagger: 0.1,
+                        ease: "back.out(3)",
+                        duration: 0.1,
+                    })
+                    .to(".hero-subtitle", {
                         opacity: 1,
                         duration: 1,
-                    },
-                    "<"
-                );
+                    })
+                    .to(
+                        ".hero-btn",
+                        {
+                            opacity: 1,
+                            duration: 1,
+                        },
+                        "<"
+                    );
+            } else {
+                document.body.classList.remove("no-scroll");
+            }
 
             const outroTl = gsap.timeline({
                 scrollTrigger: {

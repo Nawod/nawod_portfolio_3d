@@ -5,7 +5,7 @@
  * @author Nawod Madhuvantha
  */
 
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { gsap, CSSPlugin, Expo } from "gsap";
 import { useProgress } from "@react-three/drei";
 import { useDispatch } from "react-redux";
@@ -19,14 +19,13 @@ const PreLoader = () => {
     const [overallProgress, setOverallProgress] = useState<number>(0);
     const dispatch = useDispatch();
 
-    useLayoutEffect(() => {
-        // Scroll to the top immediately
-        window.scrollTo(0, 0);
-        document.body.classList.add("no-scroll");
-    }, []);
-
     // Track imported font loading
     useEffect(() => {
+        // Scroll to the top immediately
+        if (typeof window !== "undefined") {
+            window.scrollTo(0, 0);
+            document.body.classList.add("no-scroll");
+        }
         document.fonts.ready.then(() => setFontLoaded(true));
     }, []);
 
