@@ -104,6 +104,7 @@ const ParticleBg: React.FC<ParticlesComponentProps> = ({ id }) => {
     if (init) {
         return (
             <Particles
+                className="particle-wrapper"
                 id={id}
                 particlesLoaded={particlesLoaded}
                 options={options}

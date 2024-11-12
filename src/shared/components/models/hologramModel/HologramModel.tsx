@@ -21,7 +21,7 @@ const HologramModel = () => {
     const playActionRef = useRef<THREE.AnimationAction | null>(null);
 
     useEffect(() => {
-        if (typeof window !== "undefined" && actions && ScrollTrigger) {
+        if (typeof window !== "undefined" && actions) {
             const playAction = actions["Take 001"] as THREE.AnimationAction;
             if (playAction) {
                 playAction.clampWhenFinished = true;

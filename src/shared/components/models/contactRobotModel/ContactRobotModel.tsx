@@ -16,7 +16,7 @@ const ContactRobotModel = () => {
     const { actions } = useAnimations(animations, scene);
 
     useEffect(() => {
-        if (typeof window !== "undefined" && actions && ScrollTrigger) {
+        if (typeof window !== "undefined" && actions) {
             if (actions["Root|idle"]) {
                 actions["Root|idle"].play();
             }
