@@ -22,10 +22,8 @@ const PreLoader = () => {
     // Track imported font loading
     useEffect(() => {
         // Scroll to the top immediately
-        if (typeof window !== "undefined") {
-            window.scrollTo(0, 0);
-            document.body.classList.add("no-scroll");
-        }
+        window.scrollTo(0, 0);
+        document.body.classList.add("no-scroll");
         document.fonts.ready.then(() => setFontLoaded(true));
     }, []);
 
@@ -36,11 +34,10 @@ const PreLoader = () => {
         setOverallProgress(combinedProgress);
 
         if (combinedProgress >= 100) {
-            if (typeof window !== "undefined") {
-                window.scrollTo(0, 0);
-                document.body.classList.add("no-scroll");
-            }
-            reveal();
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                reveal();
+            }, 1000);
         }
     }, [modelProgress, fontLoaded]);
 
