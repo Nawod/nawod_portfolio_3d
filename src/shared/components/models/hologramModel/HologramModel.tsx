@@ -6,13 +6,9 @@
  */
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
-
-gsap.registerPlugin(ScrollTrigger);
 
 useGLTF.preload("/models/technology_aperture_out.glb");
 
@@ -22,14 +18,12 @@ const HologramModel = () => {
         "/models/technology_aperture_out.glb"
     );
     const { actions } = useAnimations(animations, scene);
-    const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
     const playActionRef = useRef<THREE.AnimationAction | null>(null);
 
     useEffect(() => {
         if (typeof window !== "undefined" && actions && ScrollTrigger) {
             const playAction = actions["Take 001"] as THREE.AnimationAction;
             if (playAction) {
-                console.log("action");
                 playAction.clampWhenFinished = true;
                 playAction.time = 1.67;
                 playAction.setLoop(THREE.LoopOnce, Infinity);
@@ -39,10 +33,6 @@ const HologramModel = () => {
                 playActionRef.current = playAction;
             }
         }
-
-        return () => {
-            scrollTriggerRef.current?.kill();
-        };
     }, [actions]);
 
     useFrame(() => {

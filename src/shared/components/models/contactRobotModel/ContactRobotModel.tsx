@@ -6,12 +6,7 @@
  */
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import * as THREE from "three";
 import { Group } from "three";
-
-gsap.registerPlugin(ScrollTrigger);
 
 useGLTF.preload("/models/contact_robot.glb");
 
@@ -19,7 +14,6 @@ const ContactRobotModel = () => {
     const contactGroup = useRef<Group>(null);
     const { animations, scene } = useGLTF("/models/contact_robot.glb");
     const { actions } = useAnimations(animations, scene);
-    const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
     useEffect(() => {
         if (typeof window !== "undefined" && actions && ScrollTrigger) {
@@ -27,10 +21,6 @@ const ContactRobotModel = () => {
                 actions["Root|idle"].play();
             }
         }
-
-        return () => {
-            scrollTriggerRef.current?.kill();
-        };
     }, [actions]);
 
     return (

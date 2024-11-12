@@ -7,7 +7,7 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Engine, Container, ISourceOptions } from "tsparticles-engine";
+import type { Container, ISourceOptions } from "@tsparticles/engine";
 
 interface ParticlesComponentProps {
     id: string;
@@ -16,15 +16,17 @@ interface ParticlesComponentProps {
 const ParticleBg: React.FC<ParticlesComponentProps> = ({ id }) => {
     const [init, setInit] = useState(false);
 
-    // Initialize particles engine (run only once)
     useEffect(() => {
-        initParticlesEngine(async (engine: Engine) => {
-            // Load only the required bundle (slim in this case)
+        initParticlesEngine(async (engine) => {
             await loadSlim(engine);
         }).then(() => {
             setInit(true);
         });
     }, []);
+
+    const particlesLoaded = async (container?: Container): Promise<void> => {
+        console.log(container);
+    };
 
     // Options for particles
     const options: ISourceOptions = useMemo(
@@ -99,15 +101,17 @@ const ParticleBg: React.FC<ParticlesComponentProps> = ({ id }) => {
         []
     );
 
-    return (
-        <Particles
-            id={id}
-            className={"particle-wrapper"}
-            canvasClassName={"particle-canvas"}
-            init={init}
-            options={options}
-        />
-    );
+    if (init) {
+        return (
+            <Particles
+                id={id}
+                particlesLoaded={particlesLoaded}
+                options={options}
+            />
+        );
+    }
+
+    return <></>;
 };
 
 export default ParticleBg;

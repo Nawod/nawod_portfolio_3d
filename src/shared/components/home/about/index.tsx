@@ -108,7 +108,9 @@ const About = () => {
                         />
                     </div>
                     <Link
-                        href={""}
+                        href={
+                            "https://drive.google.com/file/d/1GbG6FT8XuZHUjn6EjcRTxctHMebvxK0G/view?usp=sharing"
+                        }
                         target="_blank"
                         rel="noreferrer"
                         className="cv-btn"
