@@ -51,10 +51,10 @@ const ContactForm = () => {
 
         emailjs
             .send(
-                "service_g0f2tyy",
-                "template_mm4kwko",
+                process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
                 templateParams,
-                "Wr-90JbNGu12tKvmX"
+                process.env.NEXT_PUBLIC_EMAIL_KEY
             )
             .then(() => {
                 setIsLoading(false);
