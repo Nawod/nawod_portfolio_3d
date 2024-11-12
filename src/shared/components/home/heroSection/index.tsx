@@ -12,31 +12,31 @@ import Hero from "../hero";
 import About from "../about";
 
 const HeroSection = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
-  return (
-    <div className="relative hero-wrapper">
-      <View className="hero-scene pointer-events-none sticky top-0 z-20 -mt-[100vh] -mr-[100vw] h-screen w-screen block left-[25%]">
-        <HeroRobotModel />
-        <pointLight
-          intensity={30}
-          color="#5bac3e"
-          decay={0.6}
-        />
-        <directionalLight
-          position={[-5, -5, 5]}
-          intensity={4}
-        />
-      </View>
-      <div className="hero w-full relative">
-        <Hero />
-        <About />
-      </div>
-      <div className="h-[20vh]"></div>
-    </div>
-  );
+    return (
+        <div className="relative hero-wrapper">
+            <View className="hero-scene pointer-events-none sticky top-0 z-20 -mt-[100vh] -mr-[100vw] h-screen w-screen block left-[25%]">
+                <HeroRobotModel />
+                <pointLight
+                    intensity={30}
+                    color="#5bac3e"
+                    decay={0.6}
+                />
+                <directionalLight
+                    position={[-5, -5, 5]}
+                    intensity={4}
+                />
+            </View>
+            <div className="hero w-full relative">
+                <Hero />
+                <About />
+            </div>
+            <div className="h-[20vh]"></div>
+        </div>
+    );
 };
 
 export default HeroSection;

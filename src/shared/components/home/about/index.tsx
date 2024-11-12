@@ -87,16 +87,16 @@ const About = () => {
                 </div>
             </div>
             <div className="mt-12 profile-section md:z-10 z-40 relative">
-                <div className="relative profile-block max-w-[600px] max-h-[200px]">
+                <div className="svg-el relative profile-block max-w-[600px] max-h-[200px]">
                     <AboutBlockSVG />
                 </div>
-                <div className="relative self-block max-w-[600px] max-h-[300px]">
+                <div className="svg-el relative self-block max-w-[600px] max-h-[300px]">
                     <AboutSelfSVG />
                 </div>
                 <div className="iceland pl-8 service-title sm:pl-12 text-theme sm:text-lg">
                     Services I Offer :
                 </div>
-                <div className="relative flex service-block max-w-[600px] max-h-[200px]">
+                <div className=" svg-el relative flex service-block max-w-[600px] max-h-[200px]">
                     <AboutWebSVG />
                 </div>
                 <div className="flex gap-4 mt-12 flex-wrap pl-0 justify-center sm:pl-12 sm:justify-start">
@@ -153,7 +153,7 @@ const About = () => {
             <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
                 <Image
                     src="/aboutBg.jpg"
-                    alt="about background"
+                    alt="nawod+website+about+background"
                     fill
                     className="object-cover"
                 />
