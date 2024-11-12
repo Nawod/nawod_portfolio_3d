@@ -13,6 +13,7 @@ import {
 } from "./styles/fonts";
 import PreLoader from "@/shared/components/loaders/PreLoader";
 import { Providers } from "./store/provider";
+import Script from "next/script";
 
 const ViewCanvas = dynamic(
     () => import("@/shared/components/canvas/ViewCanvas"),
@@ -20,9 +21,22 @@ const ViewCanvas = dynamic(
 );
 
 export const metadata: Metadata = {
-    title: "Nawod Madhuvantha",
+    metadataBase: new URL("https://www.nawodmadhuwantha.com/"),
+    title: {
+        default: "Nawod Madhuwantha",
+        template: "%s | Nawod Madhuwantha",
+    },
     description:
-        "Software engineer skilled in Angular, Next, React, and TypeScript. Combining art, design, and tech expertise to deliver innovative, user-focused solutions.",
+        "Software engineer skilled in Angular, Next.js, React, and TypeScript. Combining technical expertise and design to deliver innovative, user-focused web solutions.",
+    openGraph: {
+        title: "Nawod Madhuwantha",
+        description:
+            "Software engineer skilled in Angular, Next.js, React, and TypeScript. Combining technical expertise and design to deliver innovative, user-focused web solutions.",
+        type: "website",
+        locale: "en_US",
+        url: "https://www.nawodmadhuwantha.com/",
+        siteName: "NawodMadhuvantha",
+    },
 };
 
 export default function RootLayout({
@@ -32,6 +46,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <Script
+                    id="gtm"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P5GBJ2TJ');`,
+                    }}
+                ></Script>
+            </head>
             <body
                 className={`${roboto.variable} ${anton.variable} ${oswald.variable} ${rubik.variable} ${iceland.variable} ${nabla.variable} ${iceberge.variable} antialiased`}
             >

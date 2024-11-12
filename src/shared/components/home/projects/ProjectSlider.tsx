@@ -44,7 +44,7 @@ const ProjectSlider = () => {
                                 <div className="relative w-full h-40 rounded-lg metallic-overlay">
                                     <Image
                                         src={item.image}
-                                        alt={`${item.title} image`}
+                                        alt={`nawod's projects ${item.title} image`}
                                         fill
                                         className="rounded-lg object-cover"
                                     />

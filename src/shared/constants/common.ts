@@ -17,7 +17,7 @@ export class SocialLinks {
         },
         {
             id : 'LinkedIn',
-            value : 'https://www.linkedin.com/in/madhuvantha-kan/',
+            value : 'https://www.linkedin.com/in/nawodmadhuwantha/',
             icon : FaLinkedin
         },
         {

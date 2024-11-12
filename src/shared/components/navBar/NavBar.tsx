@@ -64,7 +64,7 @@ const NavBar = () => {
                 >
                     <Image
                         src="/logo.png"
-                        alt="logo"
+                        alt="nawod logo"
                         fill
                         className="object-contain"
                     />
