@@ -52,6 +52,15 @@ const Hero = () => {
                     );
             } else {
                 document.body.classList.remove("no-scroll");
+                gsap.set(".hero-title .split-char", {
+                    opacity: 1,
+                });
+                gsap.set(".hero-subtitle", {
+                    opacity: 1,
+                });
+                gsap.set(".hero-btn", {
+                    opacity: 1,
+                });
             }
 
             const outroTl = gsap.timeline({
