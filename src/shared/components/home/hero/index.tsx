@@ -24,10 +24,6 @@ const Hero = () => {
             if (!isLoad) {
                 return;
             }
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
 
             const introTl = gsap.timeline({
                 onComplete: () => {

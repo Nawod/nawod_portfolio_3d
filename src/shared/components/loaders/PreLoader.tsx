@@ -21,6 +21,10 @@ const PreLoader = () => {
 
     // Track imported font loading
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
         document.fonts.ready.then(() => setFontLoaded(true));
     }, []);
 
