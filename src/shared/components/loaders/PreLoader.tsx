@@ -36,6 +36,10 @@ const PreLoader = () => {
         setOverallProgress(combinedProgress);
 
         if (combinedProgress >= 100) {
+            if (typeof window !== "undefined") {
+                window.scrollTo(0, 0);
+                document.body.classList.add("no-scroll");
+            }
             reveal();
         }
     }, [modelProgress, fontLoaded]);
