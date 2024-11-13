@@ -12,6 +12,7 @@ import Contact from "@/shared/components/home/contact";
 const Home = () => {
     return (
         <div className="w-screen relative">
+            <div id="top"></div>
             <HeroSection />
             <Projects />
             <Contact />
