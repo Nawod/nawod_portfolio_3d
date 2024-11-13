@@ -3,6 +3,9 @@ import { useEffect } from "react";
 
 const ScrollToTopOnRefresh = () => {
     useEffect(() => {
+        if ("scrollRestoration" in window.history) {
+            window.history.scrollRestoration = "manual";
+        }
         // Only execute on client side
         if (typeof window !== "undefined") {
             window.scrollTo(0, 0);
