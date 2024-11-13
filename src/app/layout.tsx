@@ -99,8 +99,8 @@ export default function RootLayout({
             <body
                 className={`${roboto.variable} ${anton.variable} ${oswald.variable} ${rubik.variable} ${iceland.variable} ${nabla.variable} ${iceberge.variable} antialiased`}
             >
+                <ScrollToTopOnRefresh />
                 <Providers>
-                    <ScrollToTopOnRefresh />
                     <PreLoader />
                     <NavBar />
                     {children}
