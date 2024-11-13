@@ -10,7 +10,6 @@ const ScrollToTopOnRefresh = () => {
             // Delay for further actions
             const scrollTimeout = setTimeout(() => {
                 document.getElementById("top")?.scrollIntoView();
-                document.body.classList.add("no-scroll");
             }, 100);
 
             // Clear timeout on unmount to avoid memory leaks
