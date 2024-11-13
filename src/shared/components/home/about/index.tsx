@@ -155,7 +155,7 @@ const About = () => {
             <div className="about-bg z-0 h-screen w-screen absolute top-[10vh] left-0 opacity-0">
                 <Image
                     src="/aboutBg.jpg"
-                    alt="nawod+website+about+background"
+                    alt="Nawod Madhuwantha Creative Web Developer | Angular, React, Next.js, TypeScript, Three.JS | 3D Web Design, Parallax Effects, Responsive Solutions"
                     fill
                     className="object-cover"
                 />

@@ -80,7 +80,7 @@ const ExperienceTimeLine = () => {
                                 <div className="relative w-full h-full flex items-center justify-center">
                                     <Image
                                         src={item.icon}
-                                        alt={`${item.icon} logo`}
+                                        alt={`${item.icon} logo Creative Web Developer | Angular, React, Next.js, TypeScript, Three.JS | 3D Web Design, Parallax Effects, Responsive Solutions`}
                                         className="object-scale-down"
                                         fill
                                     />

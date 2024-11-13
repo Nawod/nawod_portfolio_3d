@@ -64,7 +64,7 @@ const NavBar = () => {
                 >
                     <Image
                         src="/logo.png"
-                        alt="nawod logo"
+                        alt="nawod logo | Nawod Madhuwantha Creative Web Developer | Angular, React, Next.js, TypeScript, Three.JS | 3D Web Design, Parallax Effects, Responsive Solutions"
                         fill
                         className="object-contain"
                     />

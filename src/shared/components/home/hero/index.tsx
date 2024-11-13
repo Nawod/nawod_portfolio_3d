@@ -123,7 +123,8 @@ const Hero = () => {
                     <TextSplitter text={`I'm Nawod`} />
                 </h1>
                 <p className="hero-subtitle mt-8 lg:mb-8 mb-24 lg:text-3xl text-xl md:w-[50%] w-70% opacity-0">
-                    a passionate software engineer skilled in web development
+                    Your Creative Web Developer | Expert in Next.js & React
+                    Solutions
                 </p>
                 <div className="hero-btn opacity-0">
                     <NeonButton
@@ -135,7 +136,7 @@ const Hero = () => {
             <div className="hero-bg h-screen w-screen absolute top-0 left-0">
                 <Image
                     src="/heroBg.jpg"
-                    alt="nawod+website+hero+background+image"
+                    alt="Nawod Madhuwantha Creative Web Developer | Angular, React, Next.js, TypeScript, Three.JS | 3D Web Design, Parallax Effects, Responsive Solutions"
                     fill
                     className="object-cover"
                 />

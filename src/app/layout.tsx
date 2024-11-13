@@ -27,15 +27,23 @@ export const metadata: Metadata = {
         template: "%s | Nawod Madhuwantha",
     },
     description:
-        "Software engineer skilled in Angular, Next.js, React, and TypeScript. Combining technical expertise and design to deliver innovative, user-focused web solutions.",
+        "Creative software engineer specializing in Next.js, React, Angular, and TypeScript. Delivering innovative, user-focused web solutions with 3D visuals, parallax effects, and responsive design for memorable digital experiences.",
     openGraph: {
         title: "Nawod Madhuwantha",
         description:
-            "Software engineer skilled in Angular, Next.js, React, and TypeScript. Combining technical expertise and design to deliver innovative, user-focused web solutions.",
+            "Creative software engineer specializing in Next.js, React, Angular, and TypeScript. Delivering innovative, user-focused web solutions with 3D visuals, parallax effects, and responsive design for memorable digital experiences.",
         type: "website",
         locale: "en_US",
         url: "https://www.nawodmadhuwantha.com/",
-        siteName: "NawodMadhuvantha",
+        siteName: "Nawod Madhuwantha",
+        images: [
+            {
+                url: "https://www.nawodmadhuwantha.com/opengraph-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Creative Web Developer | Angular, React, Next.js, TypeScript | 3D Web Design, Parallax Effects, Responsive Solutions",
+            },
+        ],
     },
 };
 
@@ -44,6 +52,30 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const schemaMarkup = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        url: "https://www.nawodmadhuwantha.com/",
+        name: "Nawod Madhuwantha",
+        description:
+            "Creative software engineer specializing in Next.js, React, Angular, and TypeScript. Delivering innovative, user-focused web solutions with 3D visuals, parallax effects, and responsive design for memorable digital experiences.",
+        image: "https://www.nawodmadhuwantha.com/opengraph-image.jpg",
+        publisher: {
+            "@type": "Organization",
+            name: "Nawod Madhuwantha",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://www.nawodmadhuwantha.com/logo.png",
+            },
+        },
+        mainEntityOfPage: "https://www.nawodmadhuwantha.com/",
+        sameAs: [
+            "https://www.linkedin.com/in/nawodmadhuwantha",
+            "https://github.com/Nawod",
+            "https://www.behance.net/madhuvantha",
+            "https://www.fiverr.com/nawod25",
+        ],
+    };
     return (
         <html lang="en">
             <head>
@@ -54,6 +86,13 @@ export default function RootLayout({
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P5GBJ2TJ');`,
                     }}
                 ></Script>
+                <Script
+                    id="json-ld-schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schemaMarkup),
+                    }}
+                />
             </head>
             <body
                 className={`${roboto.variable} ${anton.variable} ${oswald.variable} ${rubik.variable} ${iceland.variable} ${nabla.variable} ${iceberge.variable} antialiased`}
