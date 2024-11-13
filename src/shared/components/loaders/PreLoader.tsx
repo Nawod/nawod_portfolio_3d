@@ -22,20 +22,23 @@ const PreLoader = () => {
     // Track imported font loading
     useEffect(() => {
         // Scroll to the top immediately
-        window.scrollTo(0, 0);
+        if (typeof window !== "undefined") {
+            window.scrollTo(0, 0);
 
-        const scrollTimeout = setTimeout(() => {
-            document.getElementById("top")?.scrollIntoView();
-            document.body.classList.add("no-scroll");
+            const scrollTimeout = setTimeout(() => {
+                document.getElementById("top")?.scrollIntoView();
+                document.body.classList.add("no-scroll");
 
-            const fontLoadTimeout = setTimeout(() => {
-                document.fonts.ready.then(() => setFontLoaded(true));
+                // Delay to ensure fonts are loaded
+                const fontLoadTimeout = setTimeout(() => {
+                    document.fonts.ready.then(() => setFontLoaded(true));
+                }, 100);
+
+                return () => clearTimeout(fontLoadTimeout);
             }, 100);
 
-            return () => clearTimeout(fontLoadTimeout);
-        }, 100);
-
-        return () => clearTimeout(scrollTimeout);
+            return () => clearTimeout(scrollTimeout);
+        }
     }, []);
 
     // Combine progress of models, elements, and fonts
