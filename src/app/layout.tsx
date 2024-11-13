@@ -15,6 +15,7 @@ import PreLoader from "@/shared/components/loaders/PreLoader";
 import { Providers } from "./store/provider";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ScrollToTop from "@/shared/models/ScrollToTop";
 
 const ViewCanvas = dynamic(
     () => import("@/shared/components/canvas/ViewCanvas"),
@@ -104,6 +105,7 @@ export default function RootLayout({
             <body
                 className={`${roboto.variable} ${anton.variable} ${oswald.variable} ${rubik.variable} ${iceland.variable} ${nabla.variable} ${iceberge.variable} antialiased`}
             >
+                <ScrollToTop />
                 <Providers>
                     <PreLoader />
                     <NavBar />
