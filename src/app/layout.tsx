@@ -14,6 +14,7 @@ import {
 import PreLoader from "@/shared/components/loaders/PreLoader";
 import { Providers } from "./store/provider";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const ViewCanvas = dynamic(
     () => import("@/shared/components/canvas/ViewCanvas"),
@@ -102,6 +103,7 @@ export default function RootLayout({
                     <NavBar />
                     {children}
                     <ViewCanvas />
+                    <SpeedInsights />
                 </Providers>
             </body>
         </html>
