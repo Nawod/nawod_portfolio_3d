@@ -1,8 +1,11 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const ScrollToTopOnRefresh = () => {
+    const router = useRouter();
     useEffect(() => {
+        router.refresh();
         if ("scrollRestoration" in window.history) {
             window.history.scrollRestoration = "manual";
         }

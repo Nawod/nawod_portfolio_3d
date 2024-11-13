@@ -10,6 +10,7 @@ import { gsap, CSSPlugin, Expo } from "gsap";
 import { useProgress } from "@react-three/drei";
 import { useDispatch } from "react-redux";
 import { loaderAction } from "@/app/store/loaderSlice";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -18,10 +19,12 @@ const PreLoader = () => {
     const [fontLoaded, setFontLoaded] = useState(false);
     const [overallProgress, setOverallProgress] = useState<number>(0);
     const dispatch = useDispatch();
+    const router = useRouter();
 
     // Track imported font loading
     useEffect(() => {
         // Scroll to the top immediately
+        router.refresh();
         if (typeof window !== "undefined") {
             window.scrollTo(0, 0);
 
