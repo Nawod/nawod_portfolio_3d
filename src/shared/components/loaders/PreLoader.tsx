@@ -24,10 +24,10 @@ const PreLoader = () => {
         // Scroll to the top immediately
         setTimeout(() => {
             document.getElementById("top")?.scrollIntoView();
+            window.scrollTo(0, 0);
             document.body.classList.add("no-scroll");
+            document.fonts.ready.then(() => setFontLoaded(true));
         }, 100);
-        // window.scrollTo(0, 0);
-        document.fonts.ready.then(() => setFontLoaded(true));
     }, []);
 
     // Combine progress of models, elements, and fonts
