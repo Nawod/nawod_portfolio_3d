@@ -22,7 +22,7 @@ export class SocialLinks {
         },
         {
             id : 'Behance',
-            value : 'https://www.behance.net/madhuvantha',
+            value : 'https://www.behance.net/nawodmadhuwantha',
             icon : FaBehanceSquare
         },
         {
