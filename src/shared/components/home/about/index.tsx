@@ -93,9 +93,9 @@ const About = () => {
                 <div className="svg-el relative self-block max-w-[600px] max-h-[300px]">
                     <AboutSelfSVG />
                 </div>
-                <div className="iceland pl-8 service-title sm:pl-12 text-theme sm:text-lg">
+                {/* <div className="iceland pl-8 service-title sm:pl-12 text-theme sm:text-lg">
                     Services I Offer :
-                </div>
+                </div> */}
                 <div className=" svg-el relative flex service-block max-w-[600px] max-h-[200px]">
                     <AboutWebSVG />
                 </div>
