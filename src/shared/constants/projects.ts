@@ -312,7 +312,7 @@ export class ProjectList {
           value: 'Wordpress',
         },
       ],
-      link: 'https://www.shamimobile.lk/',
+      link: 'https://www.shamimobile.com/',
       image: ShamiMobile,
     },
     {
