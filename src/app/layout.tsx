@@ -25,13 +25,14 @@ const ViewCanvas = dynamic(
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.nawodmadhuwantha.com/"),
     title: {
-        default: "Nawod Madhuwantha",
+        default:
+            "Nawod Madhuwantha | Creative Web Developer | Expert in Next.js & React Solutions",
         template: "%s | Nawod Madhuwantha",
     },
     description:
         "Creative software engineer specializing in Next.js, React, Angular, and TypeScript. Delivering innovative, user-focused web solutions with 3D visuals, parallax effects, and responsive design for memorable digital experiences.",
     openGraph: {
-        title: "Nawod Madhuwantha",
+        title: "Nawod Madhuwantha | Creative Web Developer | Expert in Next.js & React Solutions",
         description:
             "Creative software engineer specializing in Next.js, React, Angular, and TypeScript. Delivering innovative, user-focused web solutions with 3D visuals, parallax effects, and responsive design for memorable digital experiences.",
         type: "website",
@@ -58,13 +59,13 @@ export default function RootLayout({
         "@context": "https://schema.org",
         "@type": "WebPage",
         url: "https://www.nawodmadhuwantha.com/",
-        name: "Nawod Madhuwantha",
+        name: "Nawod Madhuwantha | Creative Web Developer | Expert in Next.js & React Solutions",
         description:
             "Creative software engineer specializing in Next.js, React, Angular, and TypeScript. Delivering innovative, user-focused web solutions with 3D visuals, parallax effects, and responsive design for memorable digital experiences.",
         image: "https://www.nawodmadhuwantha.com/opengraph-image.jpg",
         publisher: {
             "@type": "Organization",
-            name: "Nawod Madhuwantha",
+            name: "Nawod Madhuwantha | Creative Web Developer | Expert in Next.js & React Solutions",
             logo: {
                 "@type": "ImageObject",
                 url: "https://www.nawodmadhuwantha.com/logo.png",

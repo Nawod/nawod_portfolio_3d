@@ -122,10 +122,10 @@ const Hero = () => {
                 <h1 className="hero-title flex gap-4 text-7xl rubik lg:text-9xl sm:text-8xl glow-effect flex-wrap">
                     <TextSplitter text={`I'm Nawod`} />
                 </h1>
-                <p className="hero-subtitle mt-8 lg:mb-8 mb-24 lg:text-3xl text-xl md:w-[50%] w-70% opacity-0">
+                <h1 className="hero-subtitle mt-8 lg:mb-8 mb-24 lg:text-3xl text-xl md:w-[50%] w-70% opacity-0">
                     Your Creative Web Developer | Expert in Next.js & React
                     Solutions
-                </p>
+                </h1>
                 <div className="hero-btn opacity-0">
                     <NeonButton
                         title="Get in touch"
