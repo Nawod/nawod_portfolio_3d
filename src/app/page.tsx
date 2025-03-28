@@ -8,6 +8,7 @@ import React from "react";
 import HeroSection from "@/shared/components/home/heroSection";
 import Projects from "@/shared/components/home/projects";
 import Contact from "@/shared/components/home/contact";
+import Packages from "@/shared/components/home/packages";
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <div id="top"></div>
             <HeroSection />
             <Projects />
+            <Packages />
             <Contact />
             <div className="w-full flex flex-wrap py-4 gap-2 justify-center">
                 <div className="text-center">©️ Nawod Madhuwantha</div>

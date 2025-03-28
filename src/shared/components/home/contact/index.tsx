@@ -17,7 +17,7 @@ const Contact = () => {
     return (
         <div className="relative">
             <section
-                className={`${styles.padding} pb-10 pt-8 contact-section w-full mx-auto container h-screen relative z-10`}
+                className={`${styles.padding} pb-10 pt-8 contact-section w-full mx-auto container min-h-screen relative z-10`}
                 id="contact"
             >
                 <div className="contact-title z-10 relative">

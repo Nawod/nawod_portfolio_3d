@@ -16,6 +16,9 @@ import ShamiMobile from '../../../public/projects/shami.png';
 import Snakey from '../../../public/projects/snakey.png';
 import NRDS from '../../../public/projects/nrds.png';
 import CyberAI from '../../../public/projects/cyberAI.png';
+import Mansaranna from '../../../public/projects/mansaranna.jpg';
+import Shoeline from '../../../public/projects/shoeline.png';
+import Hadahanguru from '../../../public/projects/hadahanguru.jpg';
 
 export class ProjectList {
   public static readonly list = [
@@ -317,6 +320,72 @@ export class ProjectList {
     },
     {
       id: '18',
+      title: 'Mansaranna',
+      description:
+        'A portfolio website for a content creator',
+      technologies: [
+        {
+          id: '01',
+          value: 'Next',
+        },
+        {
+          id: '02',
+          value: 'Typescript',
+        },
+        {
+          id: '03',
+          value: 'Tailwind',
+        },
+        {
+          id: '04',
+          value: 'EmailJS',
+        },
+      ],
+      link: 'https://brands-mansaranna.vercel.app/',
+      image: Mansaranna,
+    },
+    {
+      id: '19',
+      title: 'Shoeline',
+      description:
+        'An E-commerce website for a shoe store',
+      technologies: [
+        {
+          id: '01',
+          value: 'Wordpress',
+        },
+      ],
+      link: 'https://shoeline.lk/',
+      image: Shoeline,
+    },
+    {
+      id: '20',
+      title: 'Hadahanguru',
+      description:
+        'A static website for an astrology service',
+      technologies: [
+        {
+          id: '01',
+          value: 'Next',
+        },
+        {
+          id: '02',
+          value: 'Typescript',
+        },
+        {
+          id: '03',
+          value: 'Tailwind',
+        },
+        {
+          id: '04',
+          value: 'EmailJS',
+        },
+      ],
+      link: 'https://www.hadahanguru.com/',
+      image: Hadahanguru,
+    },
+      {
+      id: '21',
       title: 'The Marvel Adventures & Expeditions',
       description:
         'A dynamic web application to showcase adventures activities and manage bookings',

@@ -1,4 +1,4 @@
-import { FaBehanceSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
+import { FaBehanceSquare, FaGithubSquare, FaLinkedin, FaWhatsappSquare } from "react-icons/fa";
 import { IconList } from "../models/common";
 import { TbBrandFiverr } from "react-icons/tb";
 import { FaSquareUpwork } from "react-icons/fa6";
@@ -34,6 +34,11 @@ export class SocialLinks {
             id : 'UpWork',
             value : 'https://www.upwork.com/freelancers/~01d22ed1705194364c',
             icon : FaSquareUpwork
+        },
+        {
+            id : 'Whatsapp',
+            value : 'https://wa.me/94763991948',
+            icon : FaWhatsappSquare
         },
     ]
 }

@@ -6,6 +6,7 @@
 const getOffset = (id: string) => {
     let offset = -0.2;
     const projectSection = document.getElementById("projects");
+    const packageSection = document.getElementById("packages");
 
     if (id === "home") {
         offset = 0;
@@ -13,6 +14,12 @@ const getOffset = (id: string) => {
         if (projectSection) {
             const projectTop =
                 projectSection.getBoundingClientRect().top + window.scrollY;
+            offset = window.scrollY < projectTop ? 1 : 0;
+        }
+    } else if (id === "packages") {
+        if (packageSection) {
+            const projectTop =
+                packageSection.getBoundingClientRect().top + window.scrollY;
             offset = window.scrollY < projectTop ? 1 : 0;
         }
     }

@@ -45,6 +45,7 @@ const ContactForm = () => {
 
         const templateParams = {
             from_name: data.name,
+            number: data.number,
             message: data.message,
             reply_to: data.email,
         };
@@ -98,6 +99,14 @@ const ContactForm = () => {
                     }`}
                     placeholder="YOUR E-MAIL"
                 />
+                <input
+                    type="number"
+                    {...register("number", { required: true })}
+                    className={`input-box glass-block ${
+                        errors.number && "outline-red-600 border-red-600"
+                    }`}
+                    placeholder="CONTACT NUMBER"
+                />
                 <textarea
                     {...register("message", { required: true })}
                     className={`textarea glass-block ${
@@ -122,7 +131,9 @@ const ContactForm = () => {
                 </div>
                 <button
                     form="my-form"
-                    className="send-btn bg-theme-metallic px-8 py-2 roboto uppercase text-shine rounded-md disabled:opacity-70"
+                    className={`send-btn bg-theme-metallic px-8 py-2 roboto uppercase text-shine rounded-md disabled:opacity-70 ${
+                        isLoading && "pointer-events-none"
+                    }`}
                     disabled={isLoading}
                     type="submit"
                 >

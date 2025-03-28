@@ -13,6 +13,10 @@ export class Navigation {
             title : 'Projects'
         },
         {
+            id : 'packages',
+            title : 'Packages'
+        },
+        {
             id : 'contact',
             title : 'Contact'
         },
