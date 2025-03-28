@@ -11,7 +11,7 @@ import PackageSlider from "./PackageSlider";
 const Packages = () => {
     return (
         <section
-            className={`${styles.padding} pt-8 pb-20 package-section w-full mx-auto container relative bg-background z-50`}
+            className={`${styles.padding} pt-8 pb-20 package-section w-full mx-auto container relative bg-background z-50 overflow-x-hidden`}
             id="packages"
         >
             <div className="package-title z-10 relative">
