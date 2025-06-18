@@ -19,6 +19,8 @@ import CyberAI from '../../../public/projects/cyberAI.png';
 import Mansaranna from '../../../public/projects/mansaranna.jpg';
 import Shoeline from '../../../public/projects/shoeline.png';
 import Hadahanguru from '../../../public/projects/hadahanguru.jpg';
+import AutoClicker from '../../../public/projects/autoClicker.jpg';
+import gmail from '../../../public/projects/gmail.png';
 
 export class ProjectList {
   public static readonly list = [
@@ -384,8 +386,44 @@ export class ProjectList {
       link: 'https://www.hadahanguru.com/',
       image: Hadahanguru,
     },
-      {
+    {
       id: '21',
+      title: 'Multi Location Auto Clicker',
+      description:
+        'Automate repetitive mouse clicks at selective multiple locations on the screen to automate tapping tasks.',
+      technologies: [
+        {
+          id: '01',
+          value: 'Python',
+        },
+      ],
+      link: 'https://nawodmadhuwantha.itch.io/multi-location-auto-clicker',
+      image: AutoClicker,
+    },
+    {
+      id: '22',
+      title: 'Gmail Alias Generator',
+      description:
+        "A web application that create unlimited email variations using Gmail's dot trick and plus aliasing.",
+      technologies: [
+        {
+          id: '01',
+          value: 'Next',
+        },
+        {
+          id: '02',
+          value: 'Typescript',
+        },
+        {
+          id: '03',
+          value: 'Tailwind',
+        },
+      ],
+      link: 'https://gmail-alias-generator.vercel.app/',
+      image: gmail,
+    },
+      {
+      id: '23',
       title: 'The Marvel Adventures & Expeditions',
       description:
         'A dynamic web application to showcase adventures activities and manage bookings',
