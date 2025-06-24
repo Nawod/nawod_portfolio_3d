@@ -59,7 +59,7 @@ export class ExperienceList {
         {
             id : '02',
             date : '2022 - 2023',
-            icon : '/company/marvel.png',
+            icon : '/company/sports.png',
             designation: 'Senior Software Engineer',
             company: 'Sports TV Network (Pvt) Ltd',
             location : 'LK',
