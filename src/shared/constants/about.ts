@@ -5,7 +5,7 @@ export class ExperienceList {
     public static readonly list : ExperienceItem[] = [
         {
             id : '01',
-            date : '2021 - 2023',
+            date : '2019 - 2022',
             icon : '/company/zoomi.png',
             designation: 'Software Engineer',
             company: 'Zoomi Technologies Inc',
@@ -26,7 +26,7 @@ export class ExperienceList {
                 },
                 {
                     id : '04',
-                    value : 'SCSS'
+                    value : 'NodeJS'
                 },
                 {
                     id : '05',
@@ -58,12 +58,12 @@ export class ExperienceList {
         },
         {
             id : '02',
-            date : '2023 - Present',
+            date : '2022 - 2023',
             icon : '/company/marvel.png',
-            designation: 'Software Engineer',
-            company: 'The Marvel Adventures & Expedition',
+            designation: 'Senior Software Engineer',
+            company: 'Sports TV Network (Pvt) Ltd',
             location : 'LK',
-            link : 'https://www.themarvelsrilanka.com/',
+            link : '',
             skills : [
                 {
                     id : '01',
@@ -75,7 +75,7 @@ export class ExperienceList {
                 },
                 {
                     id : '03',
-                    value : 'Typescript'
+                    value : 'NodeJS'
                 },
                 {
                     id : '04',
@@ -107,7 +107,56 @@ export class ExperienceList {
         },
         {
             id : '03',
-            date : '2020 - Present',
+            date : '2024 - PRESENT',
+            icon : '/company/marvel.png',
+            designation: 'Senior Software Engineer',
+            company: 'The Marvel Adventures & Expedition',
+            location : 'LK',
+            link : 'https://www.themarvelsrilanka.com/',
+            skills : [
+                {
+                    id : '01',
+                    value : 'Next'
+                },
+                {
+                    id : '02',
+                    value : 'React'
+                },
+                {
+                    id : '03',
+                    value : 'NodeJS'
+                },
+                {
+                    id : '04',
+                    value : 'Prisma'
+                },
+                {
+                    id : '05',
+                    value : 'MongoDB'
+                },
+            ],
+            tasks  : [
+                {
+                    id : '01',
+                    value : "Developed responsive web applications using Next.js, React, and Prisma to provide a seamless user experience across devices."
+                },
+                {
+                    id : '02',
+                    value : "Enhanced customer engagement by building a user-friendly booking interface, contributing to increased bookings and client retention."
+                },
+                {
+                    id : '03',
+                    value : "Built a comprehensive platform for internal booking management, significantly boosting team efficiency and productivity"
+                },
+                {
+                    id : '04',
+                    value : "Streamlined operational processes by designing reusable components and tools, supporting smoother workflows and faster feature development."
+                },
+            ]
+        },     
+        {
+            id : '04',
+            date : '2019 - Present',
             icon : '/logo.png',
             designation: 'Freelance Developer',
             company: 'Self Employment',
@@ -129,6 +178,10 @@ export class ExperienceList {
                 {
                     id : '04',
                     value : 'Wordpress'
+                },
+                {
+                    id : '04',
+                    value : 'NodeJS'
                 },
                 {
                     id : '05',

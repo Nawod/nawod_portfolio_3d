@@ -27,7 +27,7 @@ const AboutSelfSVG = (props: SVGProps<SVGSVGElement>) => (
                 y={90.09}
                 transform="matrix(.60605 0 0 .62737 69.197 34.635)"
             >
-                {"in Next.js, React, Angular, and TypeScript."}
+                {"in Next.js, React, Angular, and NodeJS."}
             </text>
             <text
                 xmlSpace="preserve"
