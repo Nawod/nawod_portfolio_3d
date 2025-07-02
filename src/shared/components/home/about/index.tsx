@@ -109,7 +109,7 @@ const About = () => {
                     </div>
                     <Link
                         href={
-                            "https://drive.google.com/file/d/1H0a4CHm0duYJOtG1G85C3gw1tVeSxdAb/view?usp=sharing"
+                            "https://drive.google.com/file/d/1K8p4G4fFawLIL8uSRFqnLxsXbXikB2VS/view?usp=sharing"
                         }
                         target="_blank"
                         rel="noreferrer"

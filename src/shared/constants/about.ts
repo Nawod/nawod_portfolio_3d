@@ -288,5 +288,10 @@ export class TechList {
             value : 'Figma',
             icon : '/tech/figma.png'
         },
+        {
+            id : '17',
+            value : 'Docker',
+            icon : '/tech/figma.png'
+        },
     ]
 }
